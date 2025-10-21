@@ -1,0 +1,113 @@
+# Edgi-Talk_SDCARD 示例工程
+
+## 简介
+
+本示例工程基于 **Edgi-Talk 平台**，演示 **SD 卡文件操作功能**，运行在 **RT-Thread 实时操作系统 (M33 核)** 上。
+通过本工程，用户可以快速体验 SD 卡的挂载、文件写入与读取功能，并通过 **串口命令行** 操作文件，为后续存储应用开发提供参考。
+
+## 软件说明
+
+* 工程基于 **Edgi-Talk** 平台开发。
+
+* 示例功能包括：
+
+  * SD 卡挂载与初始化
+  * 使用 `echo` 命令写入文件
+  * 使用 `cat` 命令读取文件内容
+  * 串口打印操作结果
+
+* 工程结构清晰，便于理解 RT-Thread 文件系统与 SD 卡接口。
+
+## 使用方法
+
+### 编译与下载
+
+1. 打开工程并完成编译。
+2. 使用 **板载下载器 (DAP)** 将开发板的 USB 接口连接至 PC。
+3. 通过编程工具将生成的固件烧录至开发板。
+4. 插入 SD 卡至开发板对应接口。
+
+### 运行效果
+
+* 烧录完成后，开发板上电即可运行示例工程。
+* 系统会自动挂载 SD 卡，并初始化文件系统。
+* 用户可在 **串口终端** 使用以下命令操作文件：
+
+1. 写入文件 `test.txt`：
+
+```sh
+echo "Hello RT-Thread SDCARD!" ./test.txt
+```
+
+2. 读取文件内容：
+
+```sh
+cat ./test.txt
+```
+
+* 串口输出示例：
+
+```
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.0.2 build Sep  8 2025 11:02:30
+ 2006 - 2022 Copyright by RT-Thread team
+found part[0], begin: 1048576, size: 29.739GB
+Hello RT-Thread
+This core is cortex-m33
+Mount SD card success!
+
+> echo "Hello RT-Thread SDCARD!" ./test.txt
+> cat ./test.txt
+Hello RT-Thread SDCARD!
+```
+
+* 使用 `echo` 命令可以写入任意字符串到 SD 卡文件中，`cat` 命令可以读取并显示文件内容。
+
+## 注意事项
+
+* 请确保 SD 卡已正确插入且格式化为 FAT 文件系统（FAT16/FAT32）。
+* 如需修改工程的 **图形化配置**，请使用以下工具打开配置文件：
+
+```
+tools/device-configurator/device-configurator.exe
+libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
+```
+
+* 修改完成后保存配置，并重新生成代码。
+* 如果 SD 卡无法挂载，请检查硬件接口和电源配置。
+
+## 启动流程
+
+系统启动顺序如下：
+
+```
++------------------+
+|   Secure M33     |
+|   (安全内核启动) |
++------------------+
+          |
+          v
++------------------+
+|       M33        |
+|   (非安全核启动) |
++------------------+
+          |
+          v
++-------------------+
+|       M55         |
+|  (应用处理器启动) |
++-------------------+
+```
+
+⚠️ 请严格按照以上顺序烧写固件，否则系统可能无法正常运行。
+
+---
+
+* 若示例工程无法正常运行，建议先编译并烧录 **Edgi-Talk\_M33\_S\_Template** 工程，确保初始化与核心启动流程正常，再运行本示例。
+* 若要开启 M55，需要在 **M33 工程** 中打开配置：
+
+```
+RT-Thread Settings --> 硬件 --> select SOC Multi Core Mode --> Enable CM55 Core
+```
+

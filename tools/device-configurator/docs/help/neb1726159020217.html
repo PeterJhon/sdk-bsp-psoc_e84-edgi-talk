@@ -1,0 +1,285 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="25.0">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\image/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\image/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="copyright" content="(C) Copyright 2025"/><meta name="generator" content="DITA-OT"/><meta name="description" content="When the Device Configurator is used outside of the ModusToolbox™ environment, such as TLEXXX, it will not have the ModusToolbox™ application context. In the current stand-alone use case, the ..."/>        
+      <title>Stand-alone operation</title><!--  Generated with Oxygen version 25.0, build number 2022101006.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="neb1726159020217-d622e255"/><meta name="wh-source-relpath" content="neb1726159020217.xml"/><meta name="wh-out-relpath" content="neb1726159020217.html"/>
+
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/commons.css?buildId=2022101006"/>
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic.css?buildId=2022101006"/>
+
+    <script>
+        var oxy_webhelp_navlinks = {};
+    </script>
+    <script src="./oxygen-webhelp/app/options/properties.js?buildId=20250326224724"></script>
+    <script src="./oxygen-webhelp/app/localization/strings.js?buildId=2022101006"></script>
+    <script src="./oxygen-webhelp/app/search/index/keywords.js?buildId=20250326224724"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/commons.js?buildId=2022101006"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/topic.js?buildId=2022101006"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/light.css?buildId=2022101006"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/infineon.css?buildId=2022101006"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/prism.css?buildId=2022101006"/>
+    <script type="text/javascript" src="./oxygen-webhelp/template/js/prism.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+    <body class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.infineon.com" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\image/infineon-logo.png" alt="Infineon Technologies"/></a>
+                    <div class=" wh_publication_title "><a href="index.html"><span class="title">Infineon Device Configurator user guide</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="workflow-status" data-status="not-draft">
+    not-draft
+</div>
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li class="active"><div class="topicref" data-id="neb1726159020217"><div class="title"><a href="neb1726159020217.html#neb1726159020217">Stand-alone operation</a><div class="wh-tooltip"><p class="shortdesc"></p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem"><div data-tocid="vgx1712178367569-d622e239" class="topicref Preface" data-id="vgx1712178367569" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="vgx1712178367569.html" id="vgx1712178367569-d622e239-link">About this document</a></div></div></li><li role="treeitem"><div data-tocid="jso1712178372387-d622e247" class="topicref" data-id="jso1712178372387" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jso1712178372387.html" id="jso1712178372387-d622e247-link">Overview</a></div></div></li><li role="treeitem" class="active"><div data-tocid="neb1726159020217-d622e255" class="topicref" data-id="neb1726159020217" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="neb1726159020217.html#neb1726159020217" id="neb1726159020217-d622e255-link">Stand-alone operation</a><div class="wh-tooltip"><p class="shortdesc"></p></div></div></div></li><li role="treeitem"><div data-tocid="rkn1712178372811-d622e335" class="topicref" data-id="rkn1712178372811" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="rkn1712178372811.html#rkn1712178372811" id="rkn1712178372811-d622e335-link">Using with ModusToolbox™ application</a></div></div></li><li role="treeitem"><div data-tocid="bjs1712178383732-d622e395" class="topicref" data-id="bjs1712178383732" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="bjs1712178383732.html" id="bjs1712178383732-d622e395-link">Quick start</a></div></div></li><li role="treeitem"><div data-tocid="ree1712178371650-d622e404" class="topicref" data-id="ree1712178371650" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="ree1712178371650.html" id="ree1712178371650-d622e404-link">Code generation</a></div></div></li><li role="treeitem"><div data-tocid="abe1712178384987-d622e412" class="topicref" data-id="abe1712178384987" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="abe1712178384987.html#abe1712178384987" id="abe1712178384987-d622e412-link">GUI description</a></div></div></li><li role="treeitem"><div data-tocid="jzr1712178383432-d622e460" class="topicref" data-id="jzr1712178383432" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jzr1712178383432.html#jzr1712178383432" id="jzr1712178383432-d622e460-link">Resources tabs</a></div></div></li><li role="treeitem"><div data-tocid="jrt1712178384752-d622e745" class="topicref" data-id="jrt1712178384752" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jrt1712178384752.html#jrt1712178384752" id="jrt1712178384752-d622e745-link">Panes</a></div></div></li><li role="treeitem"><div data-tocid="igr1712178399966-d622e833" class="topicref" data-id="igr1712178399966" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="igr1712178399966.html" id="igr1712178399966-d622e833-link">Version changes</a></div></div></li><li role="treeitem"><div data-tocid="kqj1712178400373-d622e841" class="topicref RevisionHistory" data-id="kqj1712178400373" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="kqj1712178400373.html" id="kqj1712178400373-d622e841-link">Revision history</a></div></div></li><li role="treeitem"><div data-tocid="trademarks-d622e849" class="topicref Trademarks" data-id="trademarks" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="trademarks.html" id="trademarks-d622e849-link">Disclaimer</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="neb1726159020217">
+	<h1 class="- topic/title title topictitle1" id="ariaid-title1">Stand-alone operation</h1>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">When the Device Configurator is used outside of the ModusToolbox™ environment, such as TLEXXX,
+			it will not have the ModusToolbox™ application context. In the current stand-alone use
+			case, the personalities and device-db are intended to be shipped in a CMSIS pack,
+			typically distributed via Infineon Developer Center, that is used in µVision. The Device
+			Configurator can be run as a GUI and via the command line.</p>
+	</div>
+<article class="- topic/topic topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" lang="en-us" id="unf1726159099758">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title2">Install Infineon Device Configurator</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">The installer for the Infineon Device Configurator is provided on Linux, macOS, and
+			Windows. At this time, using the tool with Keil µVision IDE outside of the ModusToolbox™
+			environment is only supported on Windows as the Keil µVision IDE is only available for
+			that operating system. The installer can be downloaded here:
+			http://www.infineon.com/idc</p>
+		<p class="- topic/p p">Launch the <em class="+ topic/ph hi-d/i ph i">deviceconfigurator_&lt;version&gt;.&lt;build
+				#&gt;_windows_x64.exe</em> installer and follow the installer wizard steps. We recommend
+			installing as current user.</p>
+		<div class="- topic/p p">In most cases, the installer adds the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Run Device
+				Configurator &lt;version&gt;</span> item to the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Tools</span> menu in the Keil µVision IDE when the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Add a menu item to run Device Configurator</span> task (by default) is
+			selected on the Custom Installation page. If needed, you can <a class="- topic/xref xref" href="neb1726159020217.html#hci1726160146461">Add menu item to µVision manually</a>. after the installer finishes.<br/><img class="- topic/image image imageleft" id="unf1726159099758__image_zjb_wfz_rcc" src="mfr1726161004740.png" height="371" width="478"/><br/></div>
+		<div class="- topic/note note note note_note" id="unf1726159099758__note_tsp_ccz_rcc" data-ofbid="unf1726159099758__note_tsp_ccz_rcc"><span class="note__title">Note:</span> The installer has options to open the Device
+			Configurator tool and the text file release notes. Opening the tool this way will not be
+			in the context of a supported project loaded in Keil µVision, and tool will open without
+			any configuration information with a message to that effect. We recommend deselecting
+			this option on the installer, and opening the tool from the Keil µVision IDE in the
+			context of a supported project. See the <a class="- topic/xref xref" href="neb1726159020217.html#trj1726159399749">Run Device Configurator</a> section.</div>
+	</div>
+</article><article class="- topic/topic topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" lang="en-us" id="bsj1726159357167">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title3">CMSIS Pack</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">In order to use devices such as TLE994x_5x in the Keil µVision IDE, you need to install the
+			appropriate CMSIS pack. For example, the <em class="+ topic/ph hi-d/i ph i">MOTIX_TLE994x_5x_PDL.pack</em>. You can find
+			the pack on the Infineon Developer Center webpage: http://www.infineon.com/idc</p>
+	</div>
+</article><article class="- topic/topic topic nested1" aria-labelledby="ariaid-title4" xml:lang="en-us" lang="en-us" id="trj1726159399749">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title4">Run Device Configurator</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p></div>
+<article class="- topic/topic topic nested2" aria-labelledby="ariaid-title5" xml:lang="en-us" lang="en-us" id="vuu1726159949231">
+	<h3 class="- topic/title title topictitle3" id="ariaid-title5">Using the GUI</h3>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<div class="- topic/p p">To run the Device Configurator GUI tool, open the Keil µVision IDE with a
+			project. Then, select the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Tools</span>
+			<span class="+ topic/ph ui-d/uicontrol ph uicontrol">&gt;</span>
+			<span class="+ topic/ph ui-d/uicontrol ph uicontrol">Run Infineon Device Configurator &lt;version&gt;</span>. If
+			you don't see the menu item, refer to <a class="- topic/xref xref" href="neb1726159020217.html#hci1726160146461">section 2.4</a>.<br/><img class="- topic/image image imageleft" id="vuu1726159949231__image_lt2_gr5_pdc" src="bnb1733520729741.png" height="164" width="688"/><br/></div>
+		<div class="- topic/note note note note_note" id="vuu1726159949231__note_lp1_jcz_rcc" data-ofbid="vuu1726159949231__note_lp1_jcz_rcc"><span class="note__title">Note:</span> This menu entry is for use with projects created out of
+			supported CMSIS packs and <strong class="+ topic/ph hi-d/b ph b">not</strong> for applications exported from the
+			ModusToolbox™ ecosystem. The CMSIS packs include the relevant files to be used via that
+			menu entry. If you launch the Device Configurator without having a supported project
+			loaded in Keil µVision, it may fail to open, and there may not be any warning or
+			message.</div>
+		<div class="- topic/p p">With a supported project loaded, the IDE launches the Device Configurator with
+			the opened <em class="+ topic/ph hi-d/i ph i">design.modus</em> file located in the current
+				project:<br/><img class="- topic/image image imageleft" id="vuu1726159949231__image_bj3_tgz_rcc" src="mas1726161367226.png" height="577" width="1019"/><br/></div>
+		<p class="- topic/p p">When you save updates, the Device Configurator generates/updates source code in the
+				<em class="+ topic/ph hi-d/i ph i">GeneratedSource</em> directory next to the <em class="+ topic/ph hi-d/i ph i">design.modus</em> file. See the <a class="- topic/xref xref" href="ree1712178371650.html#ree1712178371650___Code_Generation">Code generation</a> section for more details.</p>
+	</div>
+</article><article class="- topic/topic topic nested2" aria-labelledby="ariaid-title6" xml:lang="en-us" lang="en-us" id="xnt1726160090258">
+	<h3 class="- topic/title title topictitle3" id="ariaid-title6">Using the command line</h3>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">The Device Configurator executable can be run from the command line, and it also has a "cli"
+			version of the executable as well. Running the executable from the command line can be
+			useful as part of batch files or shell scripts to re-generate the source code based on
+			the latest configuration settings. The exit code for the executable is zero if the
+			operation is successful, or non-zero if the operation encounters an error. For more
+			information about the command-line options, run the executable using the
+			<code class="+ topic/ph pr-d/codeph ph codeph">-h</code> option.</p>
+	</div>
+</article></article><article class="- topic/topic topic nested1" aria-labelledby="ariaid-title7" xml:lang="en-us" lang="en-us" id="hci1726160146461">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title7">Add menu item to µVision manually</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">In most cases, the installer adds the menu item to the Keil µVision IDE
+			automatically. It also extracts a <em class="+ topic/ph hi-d/i ph i">IntegrateToKeil.ps1</em> script to
+			the <em class="+ topic/ph hi-d/i ph i">&lt;installation folder&gt;\resources</em> folder. If the
+				<span class="+ topic/ph ui-d/uicontrol ph uicontrol">Tools</span> menu in the Keil µVision IDE does not contain the items
+			to launch the Infineon Device Configurator, you can execute the script manually. </p>
+		<div class="- topic/p p">To run the script, open Windows Explorer and navigate to the resources folder (e.g.,
+				<em class="+ topic/ph hi-d/i ph i">C:\Users\UserName\Infineon\Tools\InfineonDeviceConfigurator-&lt;version&gt;</em>),
+			type "powershell" in address bar.<br/><img class="- topic/image image imageleft" id="hci1726160146461__image_gz1_chz_rcc" src="fnb1726161565372.png" height="404" width="705"/><br/></div>
+		<p class="- topic/p p">In the Windows PowerShell window, run the following command to change the Restricted (by
+			default) execution policy to AllSigned to allow running signed script:</p>
+		<pre class="+ topic/pre pr-d/codeblock pre codeblock" id="hci1726160146461__codeblock_llx_ghz_rcc" data-ofbid="hci1726160146461__codeblock_llx_ghz_rcc"><code>Set-ExecutionPolicy AllSigned -scope Process -Confirm:$False</code></pre>
+		<div class="- topic/p p">And confirm changes by [<span class="+ topic/ph ui-d/uicontrol ph uicontrol">A</span>] and
+				[<span class="+ topic/ph ui-d/uicontrol ph uicontrol">Enter</span>].<br/><img class="- topic/image image imageleft" id="hci1726160146461__image_efc_lhz_rcc" src="gnl1726161725441.png" height="347" width="732"/><br/></div>
+		<p class="- topic/p p">Then run the script:</p>
+		<pre class="+ topic/pre pr-d/codeblock pre codeblock" id="hci1726160146461__codeblock_oxh_3hz_rcc" data-ofbid="hci1726160146461__codeblock_oxh_3hz_rcc"><code>.\IntegrateToKeil.ps1</code></pre>
+		<div class="- topic/p p">
+			<br/><img class="- topic/image image imageleft" id="hci1726160146461__image_mtb_4hz_rcc" src="fbo1726161780470.png" height="474" width="753"/><br/>
+		</div>
+		<p class="- topic/p p">The CLI can require confirmation of script run owned by Infineon Technologies
+			publisher.</p>
+		<p class="- topic/p p">Please verify if the added Mag&lt;Id&gt;, Mfg&lt;Id&gt;, Mtx&lt;Id&gt;, Mid&lt;Id&gt; and Mex&lt;Id&gt;
+			registry values are in the script output.</p>
+	</div>
+</article><article class="- topic/topic topic nested1" aria-labelledby="ariaid-title8" xml:lang="en-us" lang="en-us" id="izm1726160254789">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title8">Remove menu item from µVision manually</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">If you use the Device Configurator uninstaller, it will remove the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Run Device
+				Configurator</span> menu item from the Keil µVision IDE automatically. To
+			remove the item manually, follow these steps:</p>
+		<div class="- topic/p p">Open Windows Explorer and navigate to the resources folder (e.g.,
+				<em class="+ topic/ph hi-d/i ph i">C:\Users\&lt;UserName&gt;\Infineon\Tools\InfineonDeviceConfigurator-&lt;version&gt;</em>),
+			type "powershell" in address bar.<br/><img class="- topic/image image imageleft" id="izm1726160254789__image_v52_whz_rcc" src="jtm1726161922212.png" height="404" width="705"/><br/></div>
+		<p class="- topic/p p">In the Windows PowerShell window, run the following command to change the Restricted (by
+			default) execution policy to AllSigned to allow running signed script:</p>
+		<pre class="+ topic/pre pr-d/codeblock pre codeblock" id="izm1726160254789__codeblock_fd5_zhz_rcc" data-ofbid="izm1726160254789__codeblock_fd5_zhz_rcc"><code>Set-ExecutionPolicy AllSigned -scope Process -Confirm:$False</code></pre>
+		<div class="- topic/p p">And confirm changes by [<span class="+ topic/ph ui-d/uicontrol ph uicontrol">A</span>] and
+				[<span class="+ topic/ph ui-d/uicontrol ph uicontrol">Enter</span>].<br/><img class="- topic/image image imageleft" id="izm1726160254789__image_pwr_c3z_rcc" src="pmt1726162033176.png" height="347" width="732"/><br/></div>
+		<p class="- topic/p p">Then run the script:</p>
+		<pre class="+ topic/pre pr-d/codeblock pre codeblock" id="izm1726160254789__codeblock_g4g_23z_rcc" data-ofbid="izm1726160254789__codeblock_g4g_23z_rcc"><code>.\IntegrateToKeil.ps1 -u</code></pre>
+		<div class="- topic/p p">Please verify the script output:<br/><img class="- topic/image image imageleft" id="izm1726160254789__image_nwd_g3z_rcc" src="qxk1726162099020.png" height="422" width="766"/><br/></div>
+	</div>
+</article></article></article></main></div>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="topic-item"><a href="#unf1726159099758" data-tocid="unf1726159099758">Install Infineon Device Configurator</a></li><li class="topic-item"><a href="#bsj1726159357167" data-tocid="bsj1726159357167">CMSIS Pack</a></li><li class="topic-item"><a href="#trj1726159399749" data-tocid="trj1726159399749">Run Device Configurator</a><ul><li class="topic-item"><a href="#vuu1726159949231" data-tocid="vuu1726159949231">Using the GUI</a></li><li class="topic-item"><a href="#xnt1726160090258" data-tocid="xnt1726160090258">Using the command line</a></li></ul></li><li class="topic-item"><a href="#hci1726160146461" data-tocid="hci1726160146461">Add menu item to µVision manually</a></li><li class="topic-item"><a href="#izm1726160254789" data-tocid="izm1726160254789">Remove menu item from µVision manually</a></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div xmlns="" class="ifx-footer"><div class="ifx-flex-container"><span><span class="copyright_info">© 2025 Infineon Technologies AG</span><span class="doctype">User Guide</span></span><span class="important-notice"><a href="#trademarks">Please read the sections "Important notice" and "Warnings" at the end of this document</a></span><span id="security-level" class="security-level-restricted">restricted</span><span class="document-version-date"><span>002-24377 Rev. *O</span><span>2025-03-26</span></span></div></div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

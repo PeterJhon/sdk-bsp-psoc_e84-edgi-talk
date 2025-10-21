@@ -1,0 +1,32 @@
+[
+ {
+  "path": "/packages/iot/webclient", 
+  "ver": "v2.2.0", 
+  "name": "WEBCLIENT"
+ }, 
+ {
+  "path": "/packages/iot/netutils", 
+  "ver": "latest", 
+  "name": "NETUTILS"
+ }, 
+ {
+  "path": "/packages/security/mbedtls", 
+  "ver": "v2.28.1", 
+  "name": "MBEDTLS"
+ }, 
+ {
+  "path": "/packages/language/JSON/cJSON", 
+  "ver": "v1.7.17", 
+  "name": "CJSON"
+ }, 
+ {
+  "path": "/packages/tools/cpu_usage", 
+  "ver": "latest", 
+  "name": "CPU_USAGE"
+ }, 
+ {
+  "path": "/packages/system/FreeRTOS_Wrapper", 
+  "ver": "latest", 
+  "name": "FREERTOS_WRAPPER"
+ }
+]

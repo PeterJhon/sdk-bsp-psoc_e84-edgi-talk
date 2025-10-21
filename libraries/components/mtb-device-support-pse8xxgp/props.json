@@ -1,0 +1,24 @@
+{
+    "core": {
+        "name": "mtb-device-support-pse8xxgp",
+        "id": "df29ee2d-7a78-54a5-a68b-c2c5343f023c",
+        "version": "1.0.200.195"
+    },
+    "configurator_support": true,
+    "opt": {
+        "documentation": [
+            {
+                "location": "docs/pdl_api_reference_manual.html",
+                "path": [
+                    "Reference Guides",
+                    "PSE84"
+                ],
+                "title": "PDL API reference",
+                "type": "api-guide"
+            }
+        ],
+        "svd": {
+            "COMPONENT_PSE84": "pdl/svd/pse84.svd"
+        }
+    }
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="25.0">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\image/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\image/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="As part of a ModusToolbox™ application, the Device Configurator design.modus file is an integral part of the board support package (BSP) and requires an association to an application in order to ..."/><meta name="copyright" content="(C) Copyright 2025"/><meta name="generator" content="DITA-OT"/><title>Using with ModusToolbox™ application</title><!--  Generated with Oxygen version 25.0, build number 2022101006.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="rkn1712178372811-d622e335"/><meta name="wh-source-relpath" content="rkn1712178372811.dita"/><meta name="wh-out-relpath" content="rkn1712178372811.html"/>
+
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/commons.css?buildId=2022101006"/>
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic.css?buildId=2022101006"/>
+
+    <script>
+        var oxy_webhelp_navlinks = {};
+    </script>
+    <script src="./oxygen-webhelp/app/options/properties.js?buildId=20250326224724"></script>
+    <script src="./oxygen-webhelp/app/localization/strings.js?buildId=2022101006"></script>
+    <script src="./oxygen-webhelp/app/search/index/keywords.js?buildId=20250326224724"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/commons.js?buildId=2022101006"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/topic.js?buildId=2022101006"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/light.css?buildId=2022101006"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/infineon.css?buildId=2022101006"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/css/prism.css?buildId=2022101006"/>
+    <script type="text/javascript" src="./oxygen-webhelp/template/js/prism.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+    <body class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.infineon.com" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\image/infineon-logo.png" alt="Infineon Technologies"/></a>
+                    <div class=" wh_publication_title "><a href="index.html"><span class="title">Infineon Device Configurator user guide</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="workflow-status" data-status="not-draft">
+    not-draft
+</div>
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li class="active"><div class="topicref" data-id="rkn1712178372811"><div class="title"><a href="rkn1712178372811.html#rkn1712178372811">Using with ModusToolbox™ application</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem"><div data-tocid="vgx1712178367569-d622e239" class="topicref Preface" data-id="vgx1712178367569" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="vgx1712178367569.html" id="vgx1712178367569-d622e239-link">About this document</a></div></div></li><li role="treeitem"><div data-tocid="jso1712178372387-d622e247" class="topicref" data-id="jso1712178372387" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jso1712178372387.html" id="jso1712178372387-d622e247-link">Overview</a></div></div></li><li role="treeitem"><div data-tocid="neb1726159020217-d622e255" class="topicref" data-id="neb1726159020217" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="neb1726159020217.html#neb1726159020217" id="neb1726159020217-d622e255-link">Stand-alone operation</a><div class="wh-tooltip"><p class="shortdesc"></p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="rkn1712178372811-d622e335" class="topicref" data-id="rkn1712178372811" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="rkn1712178372811.html#rkn1712178372811" id="rkn1712178372811-d622e335-link">Using with ModusToolbox™ application</a></div></div></li><li role="treeitem"><div data-tocid="bjs1712178383732-d622e395" class="topicref" data-id="bjs1712178383732" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="bjs1712178383732.html" id="bjs1712178383732-d622e395-link">Quick start</a></div></div></li><li role="treeitem"><div data-tocid="ree1712178371650-d622e404" class="topicref" data-id="ree1712178371650" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="ree1712178371650.html" id="ree1712178371650-d622e404-link">Code generation</a></div></div></li><li role="treeitem"><div data-tocid="abe1712178384987-d622e412" class="topicref" data-id="abe1712178384987" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="abe1712178384987.html#abe1712178384987" id="abe1712178384987-d622e412-link">GUI description</a></div></div></li><li role="treeitem"><div data-tocid="jzr1712178383432-d622e460" class="topicref" data-id="jzr1712178383432" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jzr1712178383432.html#jzr1712178383432" id="jzr1712178383432-d622e460-link">Resources tabs</a></div></div></li><li role="treeitem"><div data-tocid="jrt1712178384752-d622e745" class="topicref" data-id="jrt1712178384752" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="jrt1712178384752.html#jrt1712178384752" id="jrt1712178384752-d622e745-link">Panes</a></div></div></li><li role="treeitem"><div data-tocid="igr1712178399966-d622e833" class="topicref" data-id="igr1712178399966" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="igr1712178399966.html" id="igr1712178399966-d622e833-link">Version changes</a></div></div></li><li role="treeitem"><div data-tocid="kqj1712178400373-d622e841" class="topicref RevisionHistory" data-id="kqj1712178400373" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="kqj1712178400373.html" id="kqj1712178400373-d622e841-link">Revision history</a></div></div></li><li role="treeitem"><div data-tocid="trademarks-d622e849" class="topicref Trademarks" data-id="trademarks" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="trademarks.html" id="trademarks-d622e849-link">Disclaimer</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="rkn1712178372811___Running_the_Application"><article class="nested0" aria-labelledby="rkn1712178372811___Running_the_Application" id="rkn1712178372811">
+   <h1 class="- topic/title title topictitle1" id="rkn1712178372811___Running_the_Application">Using with ModusToolbox™ application</h1>
+   
+   <div class="- topic/body body">
+      <p class="- topic/p p">As part of a ModusToolbox™ application, the Device Configurator <em class="+ topic/ph hi-d/i ph i">design.modus</em> file is
+         an integral part of the board support package (BSP) and requires an association to an
+         application in order to obtain device configuration information.</p>
+   </div>
+<article class="- topic/topic topic nested1" aria-labelledby="ariaid-title2" xml:lang="en-us" lang="en-us" id="fsl1726162286980">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title2">Installation</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">The Infineon Device Configurator is installed as part of the ModusToolbox™ tools package. There
+			are no other requirements for installing this tool.</p>
+	</div>
+</article><article class="- topic/topic topic nested1" aria-labelledby="ariaid-title3" xml:lang="en-us" lang="en-us" id="trp1726162358023">
+	<h2 class="- topic/title title topictitle2" id="ariaid-title3">Launch the Device Configurator</h2>
+	
+	<div class="- topic/body body"><p class="- topic/shortdesc shortdesc"></p>
+		<p class="- topic/p p">You can launch the Device Configurator in various ways as described in
+			this section; however, the tool's configuration (<em class="+ topic/ph hi-d/i ph i">design.modus</em>)
+			file requires an association to an application in order to obtain device configuration
+			information. </p>
+		<p class="- topic/p p">The <em class="+ topic/ph hi-d/i ph i">design.modus</em> file contains all the required
+			hardware configuration information about the device for the application. When you save
+			updates, the Device Configurator generates/updates source code in the <em class="+ topic/ph hi-d/i ph i">GeneratedSource</em> directory next to the <em class="+ topic/ph hi-d/i ph i">design.modus</em> file.
+			Applications use the <em class="+ topic/ph hi-d/i ph i">design.modus</em> file and generated source code
+			in future application builds.</p>
+	</div>
+<article class="- topic/topic topic nested2" aria-labelledby="tkz1712178373220___Toc67921215" xml:lang="en-us" lang="en-us" id="tkz1712178373220">
+   <h3 class="- topic/title title topictitle3" id="tkz1712178373220___Toc67921215">make command</h3>
+   
+   <div class="- topic/body body">
+      <p class="- topic/p p">As described in the <a class="- topic/xref xref" href="https://www.Infineon.com/ModusToolboxUserguide" target="_blank" rel="external noopener">ModusToolbox™ tools package user guide</a> build system chapter, you can run
+         numerous make commands in the application directory, such as launching the Device
+         Configurator. After you have created a ModusToolbox™ application, navigate to the
+         application directory and type the following command in the appropriate bash terminal
+         window:</p>
+      <pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>make device-configurator</code></pre>
+      <p class="- topic/p p">This opens the Device Configurator using the application's <em class="+ topic/ph hi-d/i ph i">design.modus</em> file.</p>
+   </div>
+</article><article class="- topic/topic topic nested2" aria-labelledby="iek1712178373659___Toc159488684" xml:lang="en-us" lang="en-us" id="iek1712178373659">
+   <h3 class="- topic/title title topictitle3" id="iek1712178373659___Toc159488684">VS Code and Eclipse</h3>
+   
+   <div class="- topic/body body">
+      <p class="- topic/p p">VS Code and Eclipse have tools to launch the Device Configurator from within an open application. Refer to the applicable user guide for more details: </p>
+      <ul class="- topic/ul ul">
+         <li class="- topic/li li">
+            <a class="- topic/xref xref" href="https://www.Infineon.com/MTBVSCodeUserGuide" target="_blank" rel="external noopener">VS Code for ModusToolbox™ user guide</a>
+         </li>
+         <li class="- topic/li li">
+            <a class="- topic/xref xref" href="https://www.Infineon.com/MTBEclipseIDEUserguide" target="_blank" rel="external noopener">Eclipse IDE for  ModusToolbox™ user  guide</a>
+         </li>
+      </ul>
+   </div>
+</article><article class="- topic/topic topic nested2" aria-labelledby="bjw1712178374051___Toc159488685" xml:lang="en-us" lang="en-us" id="bjw1712178374051">
+   <h3 class="- topic/title title topictitle3" id="bjw1712178374051___Toc159488685">Executable (GUI)</h3>
+   
+   <div class="- topic/body body">
+      <p class="- topic/p p">If you don't have an application or if you just want to see what the configurator looks
+         like, you can launch the Device Configurator GUI by running its executable as appropriate
+         for your operating system (for example, double-click it or select it using the Windows
+            <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Start</span> menu). By default, it is installed here:</p>
+      <p class="- topic/p p"><em class="+ topic/ph hi-d/i ph i">&lt;install_dir&gt;/ModusToolbox/tools_&lt;version&gt;/device-configurator-&lt;version&gt;</em></p>
+      <p class="- topic/p p">When launched this way, the Device Configurator opens without any configuration
+         information. You can open a specific *.<em class="+ topic/ph hi-d/i ph i">modus</em> file using the "Open" link or clicking
+            <span class="+ topic/ph ui-d/uicontrol ph uicontrol">File &gt; Open</span>, and then navigating to the location of the
+            *.<em class="+ topic/ph hi-d/i ph i">modus</em> file to open.</p>
+   </div>
+</article><article class="- topic/topic topic nested2" aria-labelledby="xvj1712178374460___Create_New_Configuration" xml:lang="en-us" lang="en-us" id="xvj1712178374460">
+   <h3 class="- topic/title title topictitle3" id="xvj1712178374460___Create_New_Configuration">Executable (CLI)</h3>
+   
+   <div class="- topic/body body">
+      <p class="- topic/p p">The Device Configurator executable can be run from the command line, and it also has a
+         "cli" version of the executable as well. Running configurator executables from the command
+         line can be useful as part of batch files or shell scripts to re-generate the source code
+         based on the latest configuration settings. The exit code for the executable is zero if the
+         operation is successful, or non-zero if the operation encounters an error. For more
+         information about the command-line options, run the executable using the
+         <code class="+ topic/ph pr-d/codeph ph codeph">-h</code> option.</p>
+   </div>
+</article></article></article></article></main></div>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="topic-item"><a href="#fsl1726162286980" data-tocid="fsl1726162286980">Installation</a></li><li class="topic-item"><a href="#trp1726162358023" data-tocid="trp1726162358023">Launch the Device Configurator</a><ul><li class="topic-item"><a href="#tkz1712178373220" data-tocid="tkz1712178373220">make command</a></li><li class="topic-item"><a href="#iek1712178373659" data-tocid="iek1712178373659">VS Code and Eclipse</a></li><li class="topic-item"><a href="#bjw1712178374051" data-tocid="bjw1712178374051">Executable (GUI)</a></li><li class="topic-item"><a href="#xvj1712178374460" data-tocid="xvj1712178374460">Executable (CLI)</a></li></ul></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div xmlns="" class="ifx-footer"><div class="ifx-flex-container"><span><span class="copyright_info">© 2025 Infineon Technologies AG</span><span class="doctype">User Guide</span></span><span class="important-notice"><a href="#trademarks">Please read the sections "Important notice" and "Warnings" at the end of this document</a></span><span id="security-level" class="security-level-restricted">restricted</span><span class="document-version-date"><span>002-24377 Rev. *O</span><span>2025-03-26</span></span></div></div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>
