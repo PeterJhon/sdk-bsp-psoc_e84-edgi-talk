@@ -1,9 +1,21 @@
 # Edgi-Talk_emUSB-device_CDC_Echo 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **USB CDC（虚拟串口）回显功能**，运行在 **RT-Thread 实时操作系统 (M33核)** 上。
 通过本工程，用户可以快速体验 USB CDC 设备通信机制，并验证数据回显功能，为后续 USB 通信和多核应用开发提供参考。
+
+## 硬件说明
+### USB接口
+![alt text](figures/1.png)
+### BTB座子
+![alt text](figures/2.png)
+### MCU接口
+![alt text](figures/3.png)
+### 实物图位置
+![alt text](figures/4.png)
 
 ## 软件说明
 

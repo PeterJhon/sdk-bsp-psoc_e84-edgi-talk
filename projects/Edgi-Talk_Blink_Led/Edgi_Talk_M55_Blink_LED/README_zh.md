@@ -1,9 +1,41 @@
 # Edgi-Talk_M55_Blink_LED 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **绿色 LED 灯闪烁** 功能，运行在 **RT-Thread 实时操作系统** 上。
 通过本工程，用户可以快速验证板级 GPIO 配置及 LED 控制逻辑，为后续硬件控制和应用开发提供基础参考。
+
+## GPIO 简介
+
+**GPIO (General Purpose Input/Output)** 是 MCU 最常用的外设接口之一，能够在软件控制下配置为 **输入模式** 或 **输出模式**：
+
+- **输入模式**：用于读取外部电平状态，例如按键输入。
+- **输出模式**：用于控制外设电平，例如点亮 LED、驱动蜂鸣器。
+### RT-Thread 对 GPIO 的抽象
+
+RT-Thread 提供了 **PIN 设备驱动框架**，通过统一的接口屏蔽底层硬件差异：
+
+- `rt_pin_mode(pin, mode)` ：设置引脚工作模式（输入/输出/上拉/下拉等）
+- `rt_pin_write(pin, value)`：输出电平（高/低）
+- `rt_pin_read(pin)`：读取输入电平
+
+这样开发者不需要直接操作寄存器，而是通过 RT-Thread 的 API 即可完成 GPIO 控制。
+
+在本示例中，LED 引脚被配置为 **输出模式**，软件循环输出高低电平，从而实现 LED 闪烁。
+
+## 硬件说明
+
+![1](figures/1.png)
+![2](figures/2.png)
+![3](figures/3.png)
+
+如上图所示，Edgi-Talk 提供三个用户LED，分别为USER_LED1（RED）、USER_LED2（GREEN）、USER_LED3（BLUE），其中 USER_LED2 对应引脚P16_7。单片机引脚输出高电平即可点亮LED ，输出低电平则会熄灭LED。
+
+LED在开发板中的位置如下图所示： 
+
+![4](figures/4.png)
 
 ## 软件说明
 

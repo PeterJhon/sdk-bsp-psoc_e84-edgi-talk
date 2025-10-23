@@ -1,35 +1,64 @@
 # Edgi-Talk_M33_AHT20 Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
 This example project is based on the **Edgi-Talk platform** and demonstrates how to drive and use the **AHT20 temperature and humidity sensor**.
-Through this project, users can quickly experience AHT20 data acquisition and processing, and view the sampled results via the serial terminal on the development board.
+Through this project, users can quickly experience AHT20 data acquisition and processing, and view the sampled results via the serial port on the development board.
+
+### AHT10 Software Package Overview
+
+The AHT10 software package provides basic functions for using the AHT10 temperature and humidity sensor, and also includes an optional software-based moving average filter.
+For more details, please refer to the README file in the AHT10 software package.
+
+## Hardware Description
+
+### Sensor Connection Interface
+
+![alt text](figures/1.png)
+
+### Level Shifting
+
+![alt text](figures/2.png)
+
+### BTB Connector
+
+![alt text](figures/3.png)
+
+### MCU Pins
+
+![alt text](figures/4.png)
+
+### Physical Board Location
+
+![alt text](figures/5.png)
 
 ## Software Description
 
 * The project is developed based on the **Edgi-Talk** platform.
 
-* The example includes the following features:
+* Example functionalities include:
 
   * AHT20 initialization and communication via I²C
-  * Temperature and humidity data reading and parsing
-  * Serial printing of sampled data
+  * Temperature and humidity data acquisition and parsing
+  * Displaying sampled data via serial output
 
-* The project structure is clear, making it easy for users to understand I²C driver implementation and sensor interfacing.
+* The project has a clear structure, helping users understand I²C driver usage and sensor interfacing.
 
 ## Usage Instructions
 
 ### Compilation and Download
 
-1. Open the project and complete the build process.
-2. Connect the development board to the PC via the **onboard DAP downloader (USB interface)**.
-3. Use a programming tool to flash the generated firmware onto the development board.
+1. Open the project and complete the compilation.
+2. Connect the board’s USB port to the PC using the **onboard debugger (DAP)**.
+3. Use the programming tool to flash the generated firmware onto the development board.
 
-### Running Results
+### Runtime Behavior
 
-* After flashing, power on the development board to run the example project.
-* The system will initialize the AHT20 and start sampling temperature and humidity data.
-* The sampling results will be printed through the serial terminal, as shown below:
+* After flashing, power on the board to run the example project.
+* The system will initialize the AHT20 sensor and begin sampling temperature and humidity data.
+* The sampled data will be printed via the serial terminal, as shown below:
 
 ```
  \ | /
@@ -47,23 +76,23 @@ msh >[I/aht10] AHT10 has been initialized!
 
 ## Notes
 
-* To modify the project’s **graphical configuration**, open the configuration file using the following tool:
+* To modify the **graphical configuration** of the project, open the configuration file using the following tool:
 
 ```
 tools/device-configurator/device-configurator.exe
 libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
 ```
 
-* After making changes, save the configuration and regenerate the code.
+* After editing, save the configuration and regenerate the code.
 
-## Boot Process
+## Boot Sequence
 
 The system boot sequence is as follows:
 
 ```
 +------------------+
 |   Secure M33     |
-|  (Secure Core)   |
+|   (Secure Core)  |
 +------------------+
           |
           v
@@ -79,12 +108,12 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may fail to run properly.
+⚠️ Please strictly follow the boot sequence above when flashing firmware; otherwise, the system may fail to start properly.
 
 ---
 
-* If the example project does not run properly, it is recommended to first build and flash the **Edgi-Talk_M33_S_Template** project to ensure the initialization and core startup process works correctly before running this example.
-* To enable the M55 core, open the configuration in the **M33 project**:
+* If the example project does not run correctly, compile and flash the **Edgi-Talk_M33_S_Template** project first to ensure proper initialization and core startup sequence before running this example.
+* To enable the M55 core, configure the **M33 project** as follows:
 
   ```
   RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core

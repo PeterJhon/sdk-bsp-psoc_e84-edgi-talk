@@ -1,65 +1,106 @@
 # Edgi-Talk_Audio Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on the **Edgi-Talk platform** and demonstrates **audio recording and playback** functionality running on the **RT-Thread real-time operating system**.
-Through this project, users can experience how audio data is captured from the microphone and played back through the speaker.
-The playback/stop state can be controlled by a button, and the LED indicator reflects the current playback status.
+This example project is based on the **Edgi-Talk platform** and demonstrates **audio recording and playback** features running on the **RT-Thread real-time operating system**.
+Through this project, users can experience microphone audio data acquisition and speaker playback. The playback can be controlled using a button, while the LED indicator reflects the current playback state.
+
+### Audio Overview
+
+Audio devices are an essential component of embedded systems, responsible for audio data sampling and output.
+An audio system typically consists of a data bus interface, control bus interface, audio codec (Codec), speaker, and microphone, as shown below:
+
+![Embedded Audio System Overview](figures/audio_system.png)
+
+#### Audio Device Features
+
+The RT-Thread Audio device driver framework forms the low-level foundation of the Audio subsystem. It manages raw audio data input/output, stream control, device management, volume control, and hardware/codec abstraction.
+
+* Interface: Standard device interface (open/close/read/control)
+* Supports synchronous access
+* Supports both playback and recording
+* Supports audio parameter management
+* Supports volume control
+
+## Hardware Description
+
+### ES8388 Connection Interface
+
+![alt text](figures/1.png)
+
+### Speaker Interface
+
+![alt text](figures/2.png)
+
+### Control Pins
+
+![alt text](figures/3.png)
+
+### BTB Connector
+
+![alt text](figures/4.png)
+
+### MCU Interface
+
+![alt text](figures/5.png)
+
+### Physical Board Location
+
+![alt text](figures/6.png)
 
 ## Software Description
 
 * The project is developed based on the **Edgi-Talk M33** platform.
 
-* The example includes the following features:
+* Example features include:
 
-  * Audio capture via microphone
-  * Audio playback through speaker
-  * Button control for playback/stop
-  * LED indicator for playback status
+  * Microphone audio data acquisition
+  * Audio playback through the speaker
+  * Button control for play/stop
+  * LED indication for playback status
 
-* The project structure is clear, making it easy to understand RT-Thread’s audio device driver and event handling mechanisms.
+* The project structure is clear and helps users understand RT-Thread’s audio device driver and event handling mechanisms.
 
 ## Usage Instructions
 
 ### Compilation and Download
 
-1. Open the project and complete the build process.
-2. Connect the development board to the PC via the **onboard DAP downloader (USB interface)**.
-3. Use a programming tool to flash the generated firmware onto the development board.
+1. Open the project and complete the compilation.
+2. Connect the board’s USB port to the PC using the **onboard debugger (DAP)**.
+3. Use the programming tool to flash the generated firmware to the development board.
 
-   * The project can automatically invoke the signing tool (e.g., `tools/edgeprotecttools/bin/edgeprotecttools.exe`) to merge and flash the firmware (e.g., `proj_cm33_s_signed.hex`).
+   * The project can automatically call the signing tool (e.g., `tools/edgeprotecttools/bin/edgeprotecttools.exe`) to merge and flash the signed firmware (e.g., `proj_cm33_s_signed.hex`).
 
-### Running Results
+### Runtime Behavior
 
-* After flashing, power on the development board to run the example project.
-
-* The LED is **ON by default**, indicating that audio playback is enabled.
-
+* After flashing, power on the board to run the example.
+* The LED turns **on by default**, indicating that audio playback is enabled.
 * Press the button to **toggle the playback state**:
 
-  * **Play**: LED is ON, and the microphone-captured audio is played through the speaker.
-  * **Stop**: LED is OFF, and audio playback is paused.
-
-* The system continuously captures and plays back audio data, achieving real-time audio loopback functionality.
+  * **Play**: LED on — microphone-captured audio is played through the speaker
+  * **Stop**: LED off — audio playback is paused
+* The system continuously captures and plays audio data, achieving real-time audio loopback.
 
 ## Notes
 
-* To modify the project’s **graphical configuration**, open the configuration file with the following tool:
+* To modify the **graphical configuration** of the project, open the configuration file using the following tool:
 
   ```
   tools/device-configurator/device-configurator.exe
   libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
   ```
-* After making changes, save the configuration and regenerate the code.
+* After editing, save the configuration and regenerate the code.
 
-## Boot Process
+## Boot Sequence
 
 The system boot sequence is as follows:
 
 ```
 +------------------+
 |   Secure M33     |
-|  (Secure Core)   |
+|   (Secure Core)  |
 +------------------+
           |
           v
@@ -75,12 +116,12 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may fail to run properly.
+⚠️ Please strictly follow the boot sequence above when flashing the firmware, otherwise the system may fail to run properly.
 
 ---
 
-* If the example project does not run properly, it is recommended to first build and flash the **Edgi-Talk_M33_S_Template** project to ensure the initialization and core startup process works correctly before running this example.
-* To enable the M55 core, open the configuration in the **M33 project**:
+* If the example project does not run correctly, compile and flash the **Edgi-Talk_M33_S_Template** project first to ensure proper initialization and core startup sequence before running this example.
+* To enable the M55 core, configure the **M33 project** as follows:
 
   ```
   RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core

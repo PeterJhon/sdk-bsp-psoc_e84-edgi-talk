@@ -1,5 +1,7 @@
 # Edgi-Talk_M33_S_Template 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **裸机 (Bare Metal)** 架构，主要用于演示和配置 **Secure M33 内核** 的相关功能。

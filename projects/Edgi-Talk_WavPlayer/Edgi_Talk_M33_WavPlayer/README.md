@@ -1,45 +1,72 @@
 # Edgi-Talk_WavPlayer Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on the **Edgi-Talk platform** and demonstrates **WAV audio playback**, running on the **RT-Thread real-time operating system (M33 core)**.
-It allows users to quickly experience WAV audio file playback, verify audio decoding and driver interfaces, and provides a reference for future audio application development.
+This example project demonstrates **WAV audio playback** on the **M33 core** with **RT-Thread RTOS**.
+It allows users to experience WAV file parsing, playback mechanism, and verify audio decoding and driver interfaces.
+
+## Hardware Overview
+
+### ES8388 Connection
+
+![alt text](figures/1.png)
+
+### Speaker Interface
+
+![alt text](figures/2.png)
+
+### Control Pins
+
+![alt text](figures/3.png)
+
+### BTB Socket
+
+![alt text](figures/4.png)
+
+### MCU Interface
+
+![alt text](figures/5.png)
+
+### Physical Board Layout
+
+![alt text](figures/6.png)
 
 ## Software Description
 
-* Developed on the **Edgi-Talk** platform.
+* Developed on **Edgi-Talk** platform.
 
-* Example features include:
+* Example features:
 
   * WAV file parsing and playback
-  * Audio output through onboard DAC or audio peripherals
-  * Supports PCM16 WAV files
-  * Supports sample rates of **16 kHz, 24 kHz, and 48 kHz**
-  * Supports **stereo output**
-  * Playback status information printed to the serial terminal
+  * Audio output via onboard DAC or audio peripherals
+  * Supports **PCM16** WAV files
+  * Sample rates: **16 kHz, 24 kHz, 48 kHz**
+  * Stereo output
+  * Playback status printed to serial console
 
-* The project structure is clear, making it easy to understand the interaction between audio playback drivers and the RT-Thread file system.
+* Provides a clear example of **audio playback driver integration with RT-Thread filesystem**.
 
 ## Usage
 
-### Build and Flash
+### Build and Download
 
-1. Open the project and complete the build.
-2. Connect the board’s **USB interface** to the PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the compiled firmware to the development board.
-4. Copy WAV audio files to the root directory of the SD card or external storage device, e.g., `16000.wav`.
+1. Open and compile the project.
+2. Connect the board USB to PC via **DAP**.
+3. Flash the compiled firmware.
+4. Copy WAV files to SD card or external storage root directory, e.g., `16000.wav`.
 
-### Running the Demo
+### Running Result
 
-* After flashing, power on the board to run the example.
-* The system will automatically initialize I2C and I2S audio devices and mount the storage device.
-* Users can start playback via the **serial terminal** using the following command:
+* After power-on, the system initializes I2C, I2S audio devices, and mounts storage.
+* Start playback via serial terminal:
 
 ```
 wavplay -s 16000.wav
 ```
 
-* Example serial output:
+* Sample serial output:
 
 ```
  \ | /
@@ -65,35 +92,33 @@ msh />wavplay -s 16000.wav
 msh />
 ```
 
-* During playback, the serial terminal will display the WAV file’s sample rate, number of channels, bit width, and playback status information.
+* Playback status, sample rate, channels, and bit width are displayed on the serial console.
 
-## Notes
+### Notes
 
-* WAV files must be **PCM16 format**, with sample rates of **16 kHz, 24 kHz, or 48 kHz**, and output must be **stereo**.
-* To modify the project’s **graphical configuration**, open the configuration file using:
+* WAV files must be **PCM16** format, **16 kHz, 24 kHz, or 48 kHz**, stereo output.
+* To modify graphical configuration:
 
 ```
 tools/device-configurator/device-configurator.exe
 libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
 ```
 
-* After modification, save the configuration and regenerate the code.
-* Ensure that the storage device is correctly inserted and mounted; otherwise, audio playback will fail.
+* Save changes and regenerate code.
+* Ensure storage is properly inserted and mounted, otherwise playback will fail.
 
-## Boot Process
-
-The system boot sequence is as follows:
+## Startup Sequence
 
 ```
 +------------------+
 |   Secure M33     |
-| (Secure Core)    |
+|  (Secure Core)   |
 +------------------+
           |
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -103,12 +128,12 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may not operate properly.
+⚠️ Flash in this order strictly.
 
 ---
 
-* If the example project does not run correctly, it is recommended to first build and flash the **Edgi-Talk_M33_S_Template** project to ensure proper initialization and core boot sequence before running this demo.
-* To enable the M55 core, open the configuration in:
+* If the example does not run, first compile and flash **Edgi-Talk_M33_S_Template**.
+* To enable M55:
 
 ```
 RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core

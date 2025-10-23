@@ -1,70 +1,84 @@
 # Edgi-Talk_WIFI Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on the **Edgi-Talk platform** and demonstrates **WIFI functionality**, running on the **RT-Thread real-time operating system (M55 core)**.
-It allows users to quickly experience WIFI connectivity and verify the WIFI module interface, providing a reference for future WIFI development.
+This example demonstrates **Wi-Fi functionality** on the **M55 core** using **RT-Thread RTOS**.
+It allows users to quickly test Wi-Fi scanning, connection, and performance, verifying the Wi-Fi module interface.
+
+## Hardware Overview
+
+### Wi-Fi Interface
+
+![alt text](figures/1.png)
+
+### BTB Socket
+
+![alt text](figures/2.png)
+
+### MCU Interface
+
+![alt text](figures/3.png)
 
 ## Software Description
 
-* Developed on the **Edgi-Talk** platform.
+* Developed on **Edgi-Talk** platform.
 
-* Example features include:
+* Example features:
 
-  * WIFI scanning
-  * WIFI connection
-  * Iperf performance testing
+  * Wi-Fi scanning
+  * Wi-Fi connection
+  * Iperf performance test
 
-* The project structure is clear, making it easy to understand the integration between the WIFI driver and the RT-Thread system.
+* Provides a clear example of **Wi-Fi driver integration with RT-Thread**.
 
 ## Usage
 
-### Build and Flash
+### Build and Download
 
-1. Open the project and complete the build.
-2. Connect the board’s **USB interface** to the PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the compiled firmware to the development board.
+1. Open and compile the project.
+2. Connect the board USB to PC via **DAP**.
+3. Flash the compiled firmware.
 
-### Running the Demo
+### Running Result
 
-* After flashing, power on the board to run the example.
-* The system will automatically initialize the WIFI device.
-* Users can connect to WIFI via the **serial terminal** using the command:
+* After power-on, the system initializes the Wi-Fi device.
+* Connect to a Wi-Fi network via serial terminal:
 
 ```
-wifi join <SSID> <Password>
+wifi join <SSID> <PASSWORD>
 ```
 
-* Once connected, use `iperf` to test network performance.
-* The `jperf.rar` tool is provided in `packages\netutils-latest\tools`.
-* Extract it and double-click the `.bat` file to launch the tool. The interface is shown below:
+* After connection, perform throughput test with iperf.
+* A GUI tool (`jperf`) is provided under `packages/netutils-latest/tools`.
 
-![Tool Demo](image.png)
-
-* On the board terminal, run the following command (replace `<PC_IP>` with the actual PC IP) to start testing:
+  * Extract `jperf.rar` and run the `.bat` file to launch the tool.
+* Start iperf test from the board (replace `<PC_IP>` with actual PC IP):
 
 ```
 iperf -c <PC_IP>
 ```
 
+* Prefer 2.4 GHz network for testing (can use PC hotspot).
+
 ### Notes
 
-* You can use a PC hotspot for testing; 2.4 GHz is recommended.
+* Ensure the Wi-Fi module is correctly connected.
+* Serial terminal commands allow scanning, joining, and testing Wi-Fi.
 
-## Boot Process
-
-The system boot sequence is as follows:
+## Startup Sequence
 
 ```
 +------------------+
 |   Secure M33     |
-| (Secure Core)    |
+|  (Secure Core)   |
 +------------------+
           |
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -74,12 +88,12 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may not operate properly.
+⚠️ Flash in this order strictly.
 
 ---
 
-* If the example project does not run correctly, it is recommended to first build and flash the **Edgi-Talk_M33_S_Template** and **Edgi-Talk_M33_Template** projects to ensure proper initialization and core boot sequence before running this demo.
-* To enable the M55 core, open the configuration in the **Edgi-Talk_M33_Template** project:
+* If the example does not run, first compile and flash **Edgi-Talk_M33_S_Template** and **Edgi-Talk_M33_Template**.
+* To enable M55:
 
 ```
 RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core
