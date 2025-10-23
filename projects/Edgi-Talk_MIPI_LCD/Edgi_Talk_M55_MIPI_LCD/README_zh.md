@@ -1,9 +1,25 @@
 # Edgi-Talk_M55_MIPI_LCD 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **MIPI LCD 屏幕刷屏功能**，运行在 **RT-Thread 实时操作系统** 上。
 通过本工程，用户可以快速验证 **MIPI DSI 接口驱动** 和 **LCD 显示初始化**，为后续 GUI 应用或 LVGL 移植提供参考。
+
+## 硬件说明
+### 背光接口
+![alt text](figures/1.png)
+### MIPI接口
+![alt text](figures/2.png)
+### PWR接口
+![alt text](figures/3.png)
+### BTB座子
+![alt text](figures/4.png)
+![alt text](figures/5.png)
+### MCU接口
+![alt text](figures/6.png)
+![alt text](figures/7.png)
 
 ## 软件说明
 

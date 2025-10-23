@@ -1,10 +1,26 @@
 # Edgi-Talk_M33_AHT20 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk平台**，演示 **AHT20 温湿度传感器** 的驱动和使用方法。
 通过本工程，用户可以快速体验 AHT20 的数据采集与处理，并在开发板上通过串口查看采样结果。
 
+### AHT10 软件包简介
+AHT10 软件包提供了使用温度与湿度传感器 aht10 基本功能，并且提供了软件平均数滤波器可选功能，如需详细了解该软件包，请参考 AHT10 软件包中的 README。
+
+## 硬件说明
+### 传感器连接接口
+![alt text](figures/1.png)
+### 电平转换
+![alt text](figures/2.png)
+### BTB座子
+![alt text](figures/3.png)
+### MCU引脚
+![alt text](figures/4.png)
+### 实物图位置
+![alt text](figures/5.png)
 ## 软件说明
 
 * 工程基于 **Edgi-Talk** 平台开发。

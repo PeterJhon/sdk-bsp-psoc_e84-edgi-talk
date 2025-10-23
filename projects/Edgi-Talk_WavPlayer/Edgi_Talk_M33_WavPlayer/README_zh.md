@@ -1,9 +1,25 @@
 # Edgi-Talk_WavPlayer 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **WAV 音频播放功能**，运行在 **RT-Thread 实时操作系统 (M33 核)** 上。
 通过本工程，用户可以快速体验 WAV 音频文件的播放机制，并验证音频解码和驱动接口，为后续音频应用开发提供参考。
+
+## 硬件说明
+### ES8388连接接口
+![alt text](figures/1.png)
+### 喇叭接口
+![alt text](figures/2.png)
+### 控制引脚
+![alt text](figures/3.png)
+### BTB座子
+![alt text](figures/4.png)
+### MCU接口
+![alt text](figures/5.png)
+### 实物图位置
+![alt text](figures/6.png)
 
 ## 软件说明
 

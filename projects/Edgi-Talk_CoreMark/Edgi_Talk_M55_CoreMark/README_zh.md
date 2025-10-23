@@ -1,9 +1,35 @@
 # Edgi-Talk_M55_CoreMark 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **M55 核心运行 CoreMark 基准测试** 的功能，运行在 **RT-Thread 实时操作系统** 上。
 通过本工程，用户可以快速验证 M55 核心性能，并了解多核协处理器在实时操作系统下的运行情况。
+
+### CoreMark 简介
+
+**CoreMark** 是由 *EEMBC（嵌入式微控制器基准评测联盟）* 开发的一个标准化嵌入式 CPU 性能测试基准。
+它主要用于衡量微控制器或处理器的 **核心运算性能**，而不依赖特定的硬件外设。
+
+### 测试内容
+
+CoreMark 通过以下四类典型算法评估 CPU 性能：
+
+* **列表处理（List processing）**
+* **矩阵运算（Matrix operations）**
+* **状态机（State machine）**
+* **CRC 校验（Cyclic Redundancy Check）**
+
+### 测试结果
+
+输出结果以 **CoreMark/MHz** 或 **CoreMark** 表示，用于比较不同处理器或编译优化下的性能。
+
+### 特点
+
+* 开源、可移植、轻量级
+* 结果可重复、易于验证
+* 专注于 CPU 的整数计算能力
 
 ## 软件说明
 

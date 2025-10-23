@@ -1,31 +1,63 @@
+明白了，以下是更新为你指定格式的英文版本👇
+
+---
+
 # Edgi-Talk_M55_CoreMark Example Project
+
+[**中文**](./README_zh.md) | **English**
 
 ## Introduction
 
-This example project is based on the **Edgi-Talk Platform** and demonstrates the **CoreMark benchmark test running on the M55 core** under the **RT-Thread real-time operating system**.
-Through this project, users can quickly evaluate the performance of the M55 core and understand how multi-core coprocessors operate under an RTOS environment.
+This example project is based on the **Edgi-Talk platform**, demonstrating the **CoreMark benchmark running on the M55 core** under the **RT-Thread real-time operating system**.
+Through this project, users can quickly verify the performance of the M55 core and understand how the multi-core coprocessor operates under a real-time OS environment.
+
+### About CoreMark
+
+**CoreMark** is a standardized embedded CPU benchmark developed by *EEMBC (Embedded Microprocessor Benchmark Consortium)*.
+It is primarily used to measure the **core computational performance** of a microcontroller or processor, independent of specific hardware peripherals.
+
+### Test Contents
+
+CoreMark evaluates CPU performance through four representative algorithm categories:
+
+* **List processing**
+* **Matrix operations**
+* **State machine**
+* **CRC (Cyclic Redundancy Check)**
+
+### Test Results
+
+The output is represented as **CoreMark/MHz** or **CoreMark**, which allows performance comparison between different processors or compiler optimization levels.
+
+### Features
+
+* Open source, portable, and lightweight
+* Repeatable and verifiable results
+* Focused on CPU integer computation capability
 
 ## Software Description
 
-* The project is developed on the **Edgi-Talk** platform.
-* The example includes the following features:
+* The project is developed based on the **Edgi-Talk** platform.
 
-  * CoreMark benchmark running on the M55 core
-  * Printing benchmark results via UART
-* The project structure is simple and easy to understand, helping users learn the M55 core startup process and performance testing method.
+* The example includes:
+
+  * Running CoreMark benchmark on the M55 core
+  * Printing benchmark results through UART
+
+* The project has a clean structure, making it easy to understand the M55 startup process and performance testing method.
 
 ## Usage
 
 ### Build and Download
 
-1. Open the project and complete the build process.
-2. Connect the board’s **USB interface** to your PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the generated firmware to the development board.
+1. Open the project and compile it.
+2. Connect the board’s USB interface to your PC using the **onboard debugger (DAP)**.
+3. Use the programming tool to flash the generated firmware to the development board.
 
-### Running the Demo
+### Running Result
 
-* After programming, power on the board to start RT-Thread.
-* If the system starts successfully, the following message appears on the serial terminal:
+* After flashing, power on the board to start RT-Thread.
+* The following serial output indicates the system started successfully:
 
 ```
  \ | /
@@ -36,7 +68,7 @@ msh >Hello RT-Thread
 It's cortex-m55
 ```
 
-* Enter the following command in the serial console:
+* Then, manually enter the following command in the serial terminal:
 
 ```
 core_mark
@@ -67,7 +99,7 @@ CoreMark 1.0 : 1200 / GCC10.2.1 20201103 (release)  / STACK
 
 ## Notes
 
-* To modify the **graphical configuration** of the project, open the configuration file with the following tool:
+* To modify the **graphical configuration** of the project, open the configuration file using the following tool:
 
 ```
 tools/device-configurator/device-configurator.exe
@@ -78,7 +110,7 @@ libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
 
 ## Startup Sequence
 
-The system boot sequence is as follows:
+The system starts in the following order:
 
 ```
 +------------------+
@@ -89,7 +121,7 @@ The system boot sequence is as follows:
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -99,13 +131,13 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above sequence when flashing firmware, otherwise the system may fail to run properly.
+⚠️ Please strictly follow the above flashing sequence; otherwise, the system may fail to run properly.
 
 ---
 
-* If this example does not run correctly, compile and flash the **Edgi-Talk_M33_S_Template** project first to ensure proper initialization and core startup sequence, then re-run this example.
-* To enable the M55 core, open the following configuration in the **M33 project**:
+* If the example does not run correctly, first compile and flash the **Edgi-Talk_M33_S_Template** project to ensure proper initialization and core startup, then run this example.
+* To enable the M55 core, enable the following configuration in the **M33 project**:
 
-```
-RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core
-```
+  ```
+  RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core
+  ```

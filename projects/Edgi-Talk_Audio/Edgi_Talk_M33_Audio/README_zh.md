@@ -1,9 +1,36 @@
 # Edgi-Talk_Audio 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk平台**，演示 **音频录制与播放** 功能，运行在 **RT-Thread 实时操作系统** 上。
 通过本工程，用户可以体验麦克风采集音频数据并通过扬声器播放，同时通过按钮控制播放/停止状态，并通过 LED 指示当前播放状态。
+### Audio 简介
+Audio （音频）设备是嵌入式系统中非常重要的一个组成部分，负责音频数据的采样和输出。Audio  设备通常由数据总线接口、控制总线接口、音频编解码器（Codec）、扬声器和麦克风等组成，如下图所示：
+
+![嵌入式音频系统组成](figures/audio_system.png)
+#### Audio 设备特性
+RT-Thread Audio 设备驱动框架是 Audio 框架的底层部分，主要负责原生音频数据的采集和输出、音频流的控制、音频设备的管理、音量调节以及不同硬件和 Codec 的抽象等。
+- 接口：标准 device 接口(open/close/read/control)。
+- 同步模式访问。
+- 支持播放和录音。
+- 支持音频参数管理。
+- 支持音量调节。
+
+## 硬件说明
+### ES8388连接接口
+![alt text](figures/1.png)
+### 喇叭接口
+![alt text](figures/2.png)
+### 控制引脚
+![alt text](figures/3.png)
+### BTB座子
+![alt text](figures/4.png)
+### MCU接口
+![alt text](figures/5.png)
+### 实物图位置
+![alt text](figures/6.png)
 
 ## 软件说明
 

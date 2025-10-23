@@ -1,46 +1,48 @@
 # Edgi-Talk_M33_S_Template Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on a **Bare Metal** architecture and is primarily designed to demonstrate and configure features of the **Secure M33 core**.
-Additionally, this project can serve as a foundation template for further development or project creation, helping users quickly get started and extend functionality.
+This example project is based on a **bare-metal architecture** and demonstrates the configuration and usage of the **Secure M33 core**.
+It can also serve as a **template** for further development or project creation, helping users quickly get started and extend functionalities.
 
 ## Software Description
 
-* Developed on the **Edgi-Talk** platform.
-* The example covers:
+* Developed on the **Edgi-Talk platform**.
+
+* Example features include:
 
   * **Secure region configuration**
-  * **Basic boot process demonstration**
-* The project code structure is simple and clear, making it easy to understand and port.
+  * **Basic startup flow demonstration**
+
+* The project code is structured clearly, making it easy to understand and port.
 
 ## Usage
 
-### Build and Flash
+### Build and Download
 
-1. Open the project and complete the build process.
-2. Connect the board’s **USB interface** to your PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the compiled firmware to the development board.
+1. Open and compile the project.
+2. Connect the board’s USB interface to your PC using the **onboard debugger (DAP)**.
+3. Flash the compiled firmware to the board using your programming tool.
 
-### Running the Demo
+### Running Result
 
-* After flashing, power on the board to run the example project.
-* The system will boot normally and transition smoothly to the **M33 core**, indicating that the secure configuration is active.
+* After flashing and powering on, the board will start the system normally.
+* It will successfully boot into the **M33 core**, indicating that the secure configuration is effective.
 
 ## Notes
 
-* To modify the project’s **graphical configuration**, open the configuration file using:
+* To modify the **graphical configuration**, use the following tools:
 
-  ```
-  tools/device-configurator/device-configurator.exe
-  libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
-  ```
+```text
+tools/device-configurator/device-configurator.exe
+libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
+```
 
-* After modification, save the configuration and regenerate the code.
+* Save changes and regenerate code after editing.
 
-## Boot Process
-
-The system boot sequence is as follows:
+## Startup Sequence
 
 ```
 +------------------+
@@ -51,7 +53,7 @@ The system boot sequence is as follows:
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -61,4 +63,4 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may not run properly.
+⚠️ Follow this flashing order strictly; otherwise, the system may not operate correctly.

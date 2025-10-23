@@ -1,9 +1,44 @@
 # Edgi-Talk_Key_Irq 示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，运行于 **RT-Thread 实时操作系统**，演示 **按键中断 (Key IRQ)** 的使用方法。
 通过本工程，用户可以学习如何在 RT-Thread 中配置 GPIO 中断，并实现按键触发事件的响应逻辑，为后续人机交互类应用提供参考。
+## MCU 中断体系概述
+
+具有如下中断特性：
+
+1. **NVIC（嵌套向量中断控制器）**
+   - 支持 **中断嵌套**：高优先级中断可打断低优先级中断
+   - 支持 **优先级分组**（Preemption Priority 与 Subpriority）
+   - IRQn 映射到中断向量表，由 NVIC 调用对应 ISR
+2. **GPIO 外部中断 (EXTI)**
+   - 每个 GPIO 引脚可配置为外部中断输入
+   - 支持 **上升沿、下降沿或双沿触发**
+   - 中断通道由 **ICU (Interrupt Controller Unit)** 管理
+   - 可以通过 Renesas FSP 或底层寄存器配置
+   - 中断响应延迟低，适合按键、传感器等事件驱动
+3. **RT-Thread PIN 驱动模型**
+   - GPIO 在 RT-Thread 中被封装为 **PIN 设备**
+   - 提供统一接口：
+     - `rt_pin_mode(pin, mode)`：配置输入/输出模式
+     - `rt_pin_read(pin)` / `rt_pin_write(pin, value)`：读写 GPIO
+     - `rt_pin_attach_irq(pin, mode, callback, args)`：注册中断回调
+     - `rt_pin_irq_enable(pin, enable)`：使能/禁用中断
+
+> 使用 RT-Thread PIN 驱动，无需直接操作 NVIC 或 MCU 寄存器即可实现中断响应。
+## 硬件说明
+
+### 按钮接口
+![alt text](figures/1.png)
+### BTB座子
+![alt text](figures/2.png)
+### MCU接口
+![alt text](figures/3.png)
+### 实物图位置
+![alt text](figures/4.png)
 
 ## 软件说明
 

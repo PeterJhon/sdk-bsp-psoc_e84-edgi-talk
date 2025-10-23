@@ -1,37 +1,59 @@
 # Edgi-Talk_emUSB-device_CDC_Echo Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on the **Edgi-Talk Platform** and demonstrates the **USB CDC (Virtual COM Port) echo function** running on the **RT-Thread Real-Time Operating System (M33 core)**.
-Through this project, users can quickly experience the USB CDC communication mechanism and verify data echo functionality, providing a reference for further USB communication and multicore application development.
+This example project is based on the **Edgi-Talk platform**, demonstrating the **USB CDC (Virtual COM Port) echo functionality** running on the **RT-Thread real-time operating system (M33 core)**.
+Through this project, users can quickly experience USB CDC device communication and verify data echo functionality, providing a reference for future USB communication and multi-core application development.
+
+## Hardware Description
+
+### USB Interface
+
+![alt text](figures/1.png)
+
+### BTB Socket
+
+![alt text](figures/2.png)
+
+### MCU Interface
+
+![alt text](figures/3.png)
+
+### Physical Board LED/Port Location
+
+![alt text](figures/4.png)
 
 ## Software Description
 
 * The project is developed based on the **Edgi-Talk** platform.
-* The example includes the following features:
+
+* Example features include:
 
   * USB CDC device initialization
   * Virtual COM port data echo
-* The project structure is clear and helps users understand how the USB device driver operates on the **M33 core**.
+
+* The project structure is clear, making it easy to understand how the USB device driver runs on the **M33 core**.
 
 ## Usage
 
 ### Build and Download
 
-1. Open the project and complete the build process.
-2. Connect the board’s **USB interface** to your PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the generated firmware to the development board.
+1. Open the project and compile it.
+2. Connect the board’s USB interface to the PC using the **onboard debugger (DAP)**.
+3. Use the programming tool to flash the generated firmware to the development board.
 
-### Running the Demo
+### Running Result
 
-* After programming, power on the board to run the demo.
-* In the serial terminal, manually enter the following command:
+* After flashing, power on the board to run the example.
+* Manually enter the following command in the serial terminal:
 
 ```
 cdc_sample
 ```
 
-* The system will output the following startup message:
+* The system outputs the following startup information:
 
 ```
  \ | /
@@ -44,11 +66,11 @@ msh >cdc_sample
 ****************** PSOC Edge MCU: CDC echo using emUSB-device******************
 ```
 
-* On your PC, use any serial communication tool to connect to the board’s USB virtual COM port.
+* On the PC, use any serial terminal tool to connect to the board’s USB virtual COM port:
 
-1. Open a serial terminal tool on your PC and connect to the board’s virtual COM port (baud rate can be any value).
-2. Enter a string and **end it with a newline character `\n`** before sending.
-3. The board will echo the received string back to the serial terminal.
+1. Open the serial terminal tool on your PC and connect to the board’s virtual COM port (baud rate can be any value).
+2. Enter a string and **end it with a newline character `\n`**.
+3. The board will echo the complete string back to the terminal:
 
 ```
 > hello
@@ -59,11 +81,11 @@ hello
 
 ## Notes
 
-* **Echo Trigger Condition**:
-  The echo is triggered **only when the last character received is a newline (`\n`)**.
-  If the input does not include `\n`, the data will be stored in the buffer and will not be echoed immediately.
+* **Echo trigger condition**:
+  Echo occurs only when the last character of the received data is a **newline `\n`**.
+  If the input does not include `\n`, the data is stored in the buffer and will not be echoed immediately.
 
-* To modify the **graphical configuration** of the project, open the configuration file with the following tool:
+* To modify the **graphical configuration** of the project, open the configuration file using the following tool:
 
 ```
 tools/device-configurator/device-configurator.exe
@@ -74,7 +96,7 @@ libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
 
 ## Startup Sequence
 
-The system boot sequence is as follows:
+The system starts in the following order:
 
 ```
 +------------------+
@@ -85,7 +107,7 @@ The system boot sequence is as follows:
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -99,8 +121,8 @@ The system boot sequence is as follows:
 
 ---
 
-* If this example project does not run correctly, compile and flash the **Edgi-Talk_M33_S_Template** project first to ensure proper initialization and core startup sequence, then re-run this example.
-* To enable the M55 core, open the following configuration in the **M33 project**:
+* If the example does not run correctly, first compile and flash the **Edgi-Talk_M33_S_Template** project to ensure proper initialization and core startup, then run this example.
+* To enable the M55 core, enable the following configuration in the **M33 project**:
 
 ```
 RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core

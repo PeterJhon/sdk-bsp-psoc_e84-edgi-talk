@@ -1,55 +1,61 @@
 # Edgi-Talk_M33_Template Example Project
 
+[**中文**](./README_zh.md) | **English**
+
 ## Introduction
 
-This example project is based on the **RT-Thread real-time operating system** and runs on the **M33 core**.
-It allows users to quickly experience the performance of RT-Thread on the M33 platform.
-After successfully flashing the firmware and powering on the board, the **blue LED** on the development board will blink periodically, indicating that the system is running correctly.
-Additionally, this project can serve as a foundation template for further development or project creation, helping users quickly get started and extend functionality.
+This example project runs on the **M33 core** with **RT-Thread Real-Time Operating System**.
+It allows users to quickly experience RT-Thread running on the M33 platform.
+
+After flashing and powering on the board, the **blue LED** will blink periodically, indicating that the system is running normally.
+This project can also serve as a **template** for further development or project creation, helping users quickly get started and extend functionalities.
 
 ## Software Description
 
-* Developed on the **Edgi-Talk** platform.
-* Uses **RT-Thread** as the operating system kernel.
-* Example features include:
+* Developed on the **Edgi-Talk platform**.
+
+* Uses **RT-Thread** as the OS kernel.
+
+* Example features:
 
   * System initialization
-  * LED indicator task (blinking)
-* The project structure is clear, making it suitable as a starting point for learning RT-Thread or developing applications.
+  * LED task (blinking)
+
+* The project structure is clear, making it a good starting point for learning RT-Thread or developing applications.
 
 ## Usage
 
-### Build and Flash
+### Build and Download
 
-1. Open the project and complete the build process.
-2. Connect the board’s **USB interface** to your PC using the **onboard DAP debugger**.
-3. Use a programming tool to flash the compiled firmware to the development board.
+1. Open and compile the project.
+2. Connect the board’s USB interface to your PC using the **onboard debugger (DAP)**.
+3. Flash the compiled firmware to the board.
 
-   * During flashing, the project will automatically invoke the following tool to merge the signed firmware:
+   * During flashing, the following tool will be automatically invoked to merge the signed firmware:
 
-     ```
+     ```text
      tools/edgeprotecttools/bin/edgeprotecttools.exe
      ```
+
    * By default, `proj_cm33_s_signed.hex` in the directory will be merged and flashed to the target device.
 
-### Running the Demo
+### Running Result
 
-* After flashing, power on the board to run the example project.
-* The **blue LED** will blink periodically, indicating that the RT-Thread system scheduler has started successfully.
+* After flashing and powering on, the board will run the example project.
+* The **blue LED** will blink periodically, indicating that the RT-Thread scheduler has started successfully.
 
 ## Notes
 
-* To modify the project’s **graphical configuration**, open the configuration file using:
+* To modify the **graphical configuration**, use the following tools:
 
-  ```
-  tools/device-configurator/device-configurator.exe
-  libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
-  ```
-* After modification, save the configuration and regenerate the code.
+```text
+tools/device-configurator/device-configurator.exe
+libs/TARGET_APP_KIT_PSE84_EVAL_EPC2/config/design.modus
+```
 
-## Boot Process
+* Save changes and regenerate code after editing.
 
-The system boot sequence is as follows:
+## Startup Sequence
 
 ```
 +------------------+
@@ -60,7 +66,7 @@ The system boot sequence is as follows:
           v
 +------------------+
 |       M33        |
-| (Non-secure Core)|
+| (Non-Secure Core)|
 +------------------+
           |
           v
@@ -70,7 +76,10 @@ The system boot sequence is as follows:
 +-------------------+
 ```
 
-⚠️ Please strictly follow the above flashing sequence; otherwise, the system may not operate properly.
+⚠️ Follow this flashing order strictly; otherwise, the system may not operate correctly.
 
-* To enable the M55 core, open the configuration in:
-  `RT-Thread Settings --> Hardware --> select SOC Multi Core Mode --> Enable CM55 Core`
+* To enable M55, open the configuration in RT-Thread Settings:
+
+```
+Hardware --> select SOC Multi Core Mode --> Enable CM55 Core
+```
