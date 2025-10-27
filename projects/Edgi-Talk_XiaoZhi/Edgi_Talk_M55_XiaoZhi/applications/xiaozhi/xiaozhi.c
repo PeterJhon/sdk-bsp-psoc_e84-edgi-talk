@@ -22,6 +22,7 @@ static char mac_address_string[20] = {0};
 static char client_id_string[40] = {0};
 xiaozhi_ws_t g_xz_ws;
 enum DeviceState g_state;
+rt_event_t xiaozhi_button_event = RT_NULL;
 
 void voice_rx_init();
 extern void iot_invoke(const uint8_t *data, uint16_t len);
@@ -90,12 +91,12 @@ void xz_button_callback(void *arg)
 {
     if (CYBSP_BTN_PRESSED == Cy_GPIO_Read(CYBSP_USER_BTN_PORT, CYBSP_USER_BTN_PIN))
     {
-        rt_event_send(button_event, BUTTON_EVENT_PRESSED);
+        rt_event_send(xiaozhi_button_event, BUTTON_EVENT_PRESSED);
     }
 #ifndef ExBoard_Voice
     else
     {
-        rt_event_send(button_event, BUTTON_EVENT_RELEASED);
+        rt_event_send(xiaozhi_button_event, BUTTON_EVENT_RELEASED);
     }
 #endif
 }
@@ -105,7 +106,7 @@ void xz_button_thread_entry(void *param)
     rt_uint32_t evt;
     while (1)
     {
-        rt_event_recv(button_event,
+        rt_event_recv(xiaozhi_button_event,
                       BUTTON_EVENT_PRESSED | BUTTON_EVENT_RELEASED,
                       RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR,
                       RT_WAITING_FOREVER, &evt);
@@ -159,8 +160,8 @@ void xz_button_init(void)
     {
         rt_pin_mode(BUTTON_PIN, PIN_MODE_INPUT_PULLUP);
         rt_pin_write(BUTTON_PIN, PIN_HIGH);
-        button_event = rt_event_create("btn_evt", RT_IPC_FLAG_FIFO);
-        RT_ASSERT(button_event != RT_NULL);
+        xiaozhi_button_event = rt_event_create("btn_evt", RT_IPC_FLAG_FIFO);
+        RT_ASSERT(xiaozhi_button_event != RT_NULL);
 
         rt_thread_t tid = rt_thread_create("btn_thread",
                                            xz_button_thread_entry,
@@ -232,7 +233,7 @@ void xz_audio_send_using_websocket(uint8_t *data, int len)
 {
     if (g_xz_ws.is_connected)
     {
-        wsock_write(&g_xz_ws.clnt, data, len, OPCODE_BINARY);
+        wsock_write(&g_xz_ws.clnt, (const char *)data, len, OPCODE_BINARY);
     }
     else
     {
@@ -271,10 +272,10 @@ err_t my_wsapp_fn(int code, char *buf, size_t len)
         g_state = kDeviceStateUnknown;
         break;
     case WS_TEXT:
-        Message_handle(buf, len);
+        Message_handle((const uint8_t *)buf, len);
         break;
     case WS_DATA:
-        xz_audio_downlink(buf, len, NULL, 0);
+        xz_audio_downlink((uint8_t *)buf, len, NULL, 0);
         break;
     default:
         LOG_E("Unknown error\n");
@@ -411,7 +412,7 @@ char *my_json_string(cJSON *json, char *key)
 void Message_handle(const uint8_t *data, uint16_t len)
 {
 //    rt_kputs(data);
-    cJSON *root = cJSON_Parse(data);
+    cJSON *root = cJSON_Parse((const char *)data);
     if (!root)
     {
         LOG_E("Error before: [%s]\n", cJSON_GetErrorPtr());
@@ -499,6 +500,7 @@ void Message_handle(const uint8_t *data, uint16_t len)
         cJSON *payload = cJSON_GetObjectItem(root, "payload");
         if (payload && cJSON_IsObject(payload))
         {
+            extern void McpServer_ParseMessage(const char* message);
             McpServer_ParseMessage(cJSON_PrintUnformatted(payload));
         }
     }
@@ -622,12 +624,6 @@ int http_xiaozhi_data_parse_ws(char *json_data)
         return -1;
     }
 
-    cJSON *presult = cJSON_GetObjectItem(root, "mqtt");
-    char *endpoint = my_json_string(presult, "endpoint");
-    char *client_id = my_json_string(presult, "client_id");
-    char *username = my_json_string(presult, "username");
-    char *password = my_json_string(presult, "password");
-    char *publish_topic = my_json_string(presult, "publish_topic");
     xiaozhi_ws_connect();
     cJSON_Delete(root);
     return 0;
@@ -690,6 +686,7 @@ void xiaozhi_entry(void *p)
         if (my_ota_version)
         {
             http_xiaozhi_data_parse_ws(my_ota_version);
+            extern void iot_initialize(void);
             iot_initialize();
             rt_free(my_ota_version);
             break;
@@ -763,14 +760,13 @@ static void serial_thread_entry(void *parameter)
         result = rt_mq_recv(&rx_mq, &msg, sizeof(msg), RT_WAITING_FOREVER);
         if (result > 0)
         {
-
             rx_length = rt_device_read(msg.dev, 0, rx_buffer, msg.size);
             rx_buffer[rx_length] = '\0';
             rt_kprintf("%s", rx_buffer);
             if (rx_buffer[0] == 0x01)
             {
                 rt_device_write(serial, 0, cmd, (sizeof(cmd)));
-                rt_event_send(button_event, BUTTON_EVENT_PRESSED);
+                rt_event_send(xiaozhi_button_event, BUTTON_EVENT_PRESSED);
 
             }
         }
@@ -779,8 +775,6 @@ static void serial_thread_entry(void *parameter)
 
 void voice_rx_init()
 {
-    rt_err_t result = RT_EOK;
-
     serial = rt_device_find("uart1");
     if (serial == RT_NULL)
     {
@@ -788,7 +782,7 @@ void voice_rx_init()
         return;
     }
 
-    result = rt_device_open(serial, RT_DEVICE_FLAG_INT_RX);
+    rt_device_open(serial, RT_DEVICE_FLAG_INT_RX);
     rt_device_set_rx_indicate(serial, uart_input);
 
     rt_mq_init(&rx_mq, "rx_mq",

@@ -375,7 +375,7 @@ static rt_err_t mic_start(struct rt_audio_device *audio, int stream)
 
     return RT_EOK;
 }
-\
+
 static rt_err_t mic_stop(struct rt_audio_device *audio, int stream)
 {
     struct mic_device *mic_dev = (struct mic_device *)audio->parent.user_data;
@@ -400,6 +400,7 @@ static struct rt_audio_ops mic_ops =
     .transmit    = RT_NULL,
     .buffer_info = RT_NULL,
 };
+
 int rt_hw_pdm_init(void)
 {
     rt_uint8_t *rx_fifo;

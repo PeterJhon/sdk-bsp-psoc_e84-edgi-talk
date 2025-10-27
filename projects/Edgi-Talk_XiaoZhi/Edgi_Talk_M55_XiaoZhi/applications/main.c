@@ -72,7 +72,7 @@ int en_gpio(void)
     rt_pin_mode(LCD_BL_GPIO_NUM, PIN_MODE_OUTPUT);
     rt_pin_mode(LCD_DISP_GPIO_NUM, PIN_MODE_OUTPUT);
     rt_pin_mode(BL_PWM_DISP_CTRL, PIN_MODE_OUTPUT);
-    
+
     return 0;
 }
 INIT_BOARD_EXPORT(en_gpio);

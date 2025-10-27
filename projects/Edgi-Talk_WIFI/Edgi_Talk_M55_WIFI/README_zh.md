@@ -41,14 +41,23 @@
 * 用户可在 **串口终端**使用以下命令连接WIFI：
 
 ```
+wifi scan
+```
+![alt text](figures/5.png)
+```
 wifi join 名称 密码
 ```
+![alt text](figures/6.png)
+```
+ping www.rt-thread.org
+```
+![alt text](figures/7.png)
 
 * 网络连接完成后，可使用 iperf 进行性能测试。
 * 在 packages\netutils-latest\tools 目录下提供了 jperf.rar 测速工具。
 * 将其解压后，双击其中的 .bat 文件，即可启动工具，界面如下图所示：
 
-![工具演示](image.png)
+![工具演示](figures/4.png)
 
 * 在开发板终端输入以下命令（其中 电脑的 IP 请替换为实际地址），即可开始测速：
 

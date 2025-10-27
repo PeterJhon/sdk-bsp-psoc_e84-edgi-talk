@@ -230,6 +230,10 @@ void xz_opus_thread_entry(void *p)
             opus_int32 res = opus_decode(thiz->decoder, (const uint8_t *)queue->data,
                                          queue->data_len, thiz->downlink_decode_out,
                                          XZ_SPK_FRAME_LEN / 2, 0);
+            if (res < 0)
+            {
+                LOG_E("Opus decode error: %d", res);
+            }
             rt_device_write(thiz->rt_audio_dev, 0, (char *)thiz->downlink_decode_out, XZ_SPK_FRAME_LEN);
 
             uint8_t need_decode_again = 0;

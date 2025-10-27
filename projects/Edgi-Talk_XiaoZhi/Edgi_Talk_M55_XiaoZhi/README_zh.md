@@ -1,5 +1,7 @@
 # 小智示例工程
 
+**中文** | [**English**](./README.md)
+
 ## 简介
 
 本示例工程基于 **Edgi-Talk 平台**，演示 **小智语音交互设备的基本功能**，运行在 **RT-Thread 实时操作系统** 上。
@@ -15,7 +17,13 @@
   * 设备状态管理（待机、监听、休眠等）
 
 ## 使用方法
-
+### WIFI修改
+1. 在 `main.c` 36行中找到以下代码：
+```c
+while (rt_wlan_connect("TEST", "88888888"));
+```
+2. 将 "TEST" 改为你的 WiFi 名称，"88888888" 改为密码，重新编译并烧录。
+3. WIFI 详细使用参考 ：[**WIFI**](../../Edgi-Talk_WIFI/Edgi_Talk_M55_WIFI/README_zh.md)
 ### 编译与下载
 
 1. 打开工程并完成编译。
@@ -33,6 +41,7 @@
   * **Sleeping**：休眠状态
 * 按下顶部按键，可进入 **Listening** 状态进行语音交互。
 
+![alt text](figures/3.png)
 ## 注意事项
 * 第一次需要进入 [小智官网](https://xiaozhi.me/) 进行后台绑定
 ![alt text](figures/2.png)

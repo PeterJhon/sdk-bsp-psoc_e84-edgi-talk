@@ -40,7 +40,6 @@ static void adc_check_entry(void* parameter)
 
     rt_adc_device_t adc_dev;
     rt_uint32_t value;
-    char tmp[64];
     static rt_uint32_t adc_buf[ADC_AVG_NUM] = {0};
     rt_uint32_t sum = 0;
     rt_uint8_t idx = 0;

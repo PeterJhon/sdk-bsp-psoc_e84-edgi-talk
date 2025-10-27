@@ -47,9 +47,17 @@ It allows users to quickly test Wi-Fi scanning, connection, and performance, ver
 * Connect to a Wi-Fi network via serial terminal:
 
 ```
+wifi scan
+```
+![alt text](figures/5.png)
+```
 wifi join <SSID> <PASSWORD>
 ```
-
+![alt text](figures/6.png)
+```
+ping www.rt-thread.org
+```
+![alt text](figures/7.png)
 * After connection, perform throughput test with iperf.
 * A GUI tool (`jperf`) is provided under `packages/netutils-latest/tools`.
 

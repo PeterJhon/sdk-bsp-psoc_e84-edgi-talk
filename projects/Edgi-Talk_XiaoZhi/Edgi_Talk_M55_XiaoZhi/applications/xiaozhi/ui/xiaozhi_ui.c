@@ -177,7 +177,7 @@ void xiaozhi_ui_task(void *args)
     lv_style_set_text_font(&style, font);
 
     lv_style_init(&style24);
-    lv_font_t * font2 = lv_tiny_ttf_create_data(xiaozhi_font, xiaozhi_font_size, 24);
+    lv_font_t *font2 = lv_tiny_ttf_create_data(xiaozhi_font, xiaozhi_font_size, 24);
     lv_style_set_text_font(&style24, font2);
 
     if (xiaozhi_ui_obj_init() != RT_EOK) return;

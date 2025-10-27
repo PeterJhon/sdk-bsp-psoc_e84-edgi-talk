@@ -1,5 +1,4 @@
 /*******************************************************************************
-#include <packages/lvgl_9.2.0/src/draw/vg_lite/lv_draw_vg_lite.h>
 * File Name        : lv_draw_vg_lite.c
 *
 * Description      : This file provides implementation of LVGL's drawing operations
@@ -24,7 +23,7 @@
 #include "lv_vg_lite_grad.h"
 #include "lv_vg_lite_pending.h"
 #include "lv_vg_lite_stroke.h"
-
+#include "lv_draw_vg_lite.h"
 /*********************
 * Macros
 *********************/

@@ -94,7 +94,7 @@ typedef struct
 {
     uint32_t sample_rate;
     uint32_t frame_duration;
-    uint8_t session_id[12];
+    char session_id[12];
     wsock_state_t clnt;
     rt_sem_t sem;
     uint8_t is_connected;
@@ -132,7 +132,7 @@ typedef struct
     rt_device_t rt_audio_dev;
     rt_device_t rt_mic_dev;
 } xz_audio_t;
-static rt_event_t button_event = RT_NULL;
+extern rt_event_t xiaozhi_button_event;
 char *get_mac_address(void);
 char *get_client_id(void);
 void xz_button_callback(void *arg);

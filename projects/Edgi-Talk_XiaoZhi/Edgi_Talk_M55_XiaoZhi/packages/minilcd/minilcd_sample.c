@@ -4,7 +4,7 @@
 
 #define BLK GET_PIN(13,7)
 
-static void minilcd_test()
+int minilcd_test(void)
 {
     rt_pin_mode(BLK, PIN_MODE_OUTPUT);
     rt_pin_write(BLK, 0);
@@ -14,5 +14,6 @@ static void minilcd_test()
 
     LCD_ShowPicture(100, 1, 31, 80, gImage_test);
     LCD_ShowPicture(40, 1, 35, 80, gImage_test1);
+    return 0;
 }
 INIT_APP_EXPORT(minilcd_test);
