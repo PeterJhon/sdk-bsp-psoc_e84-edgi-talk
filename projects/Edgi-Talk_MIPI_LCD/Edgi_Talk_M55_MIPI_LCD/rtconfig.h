@@ -369,6 +369,7 @@
 #define BSP_USING_UART2
 #define BSP_USING_LCD
 #define COMPONENT_MTB_DISPLAY_tl043wvv02
+#define BSP_USING_FREERTOS
 /* end of On-chip Peripheral Drivers */
 
 /* Board extended module Drivers */
