@@ -24,7 +24,7 @@
 #define EMOJI_NUM           18
 #define UI_MSG_DATA_SIZE    128
 #define UI_MSG_POOL_SIZE    10
-#define UI_THREAD_STACK     (1024 * 4)
+#define UI_THREAD_STACK     (1024 * 10)
 #define UI_THREAD_PRIORITY  25
 #define UI_THREAD_TICK      10
 
@@ -76,25 +76,6 @@ typedef struct
  * External Declarations
  *****************************************************************************/
 /* Emoji images */
-extern const lv_image_dsc_t color_neutral;
-extern const lv_image_dsc_t color_happy;
-extern const lv_image_dsc_t color_laughing;
-extern const lv_image_dsc_t color_funny;
-extern const lv_image_dsc_t color_sad;
-extern const lv_image_dsc_t color_angry;
-extern const lv_image_dsc_t color_crying;
-extern const lv_image_dsc_t color_loving;
-extern const lv_image_dsc_t color_sleepy;
-extern const lv_image_dsc_t color_surprised;
-extern const lv_image_dsc_t color_shocked;
-extern const lv_image_dsc_t color_thinking;
-extern const lv_image_dsc_t color_winking;
-extern const lv_image_dsc_t color_cool;
-extern const lv_image_dsc_t color_relaxed;
-extern const lv_image_dsc_t color_delicious;
-extern const lv_image_dsc_t color_kissy;
-extern const lv_image_dsc_t color_confident;
-
 /* Status icons - Bluetooth not used */
 /* extern const lv_image_dsc_t ble; */
 /* extern const lv_image_dsc_t ble_close; */
@@ -127,7 +108,7 @@ static lv_obj_t *s_label_status;    /* Status label */
 static lv_obj_t *s_label_info;      /* Info label */
 static lv_obj_t *s_label_adc;       /* ADC label */
 static lv_obj_t *s_label_output;    /* Output label */
-static lv_obj_t *s_emoji_objs[EMOJI_NUM];
+static lv_obj_t *s_emoji_container;
 static lv_obj_t *s_main_container;
 static lv_obj_t *s_header_row;
 static lv_obj_t *s_img_container;
@@ -144,14 +125,6 @@ static lv_style_t s_style_24;
 static lv_style_t s_style_20;
 
 /* Emoji resources */
-static const lv_image_dsc_t *s_emoji_imgs[EMOJI_NUM] =
-{
-    &color_neutral, &color_happy, &color_laughing, &color_funny, &color_sad,
-    &color_angry, &color_crying, &color_loving, &color_sleepy, &color_surprised,
-    &color_shocked, &color_thinking, &color_winking, &color_cool, &color_relaxed,
-    &color_delicious, &color_kissy, &color_confident
-};
-
 static const char *s_emoji_names[EMOJI_NUM] =
 {
     "neutral", "happy", "laughing", "funny", "sad", "angry",
@@ -257,22 +230,14 @@ static rt_err_t ui_objects_init(void)
 
     /* Configure screen */
     lv_obj_clear_flag(screen, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_style_bg_color(screen, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(screen, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     /* Create main container - Flex Column layout */
-    s_main_container = lv_obj_create(screen);
-    lv_obj_remove_flag(s_main_container, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_size(s_main_container, scr_width, scr_height);
-    lv_obj_set_style_pad_all(s_main_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_margin_all(s_main_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(s_main_container, LV_OPA_0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(s_main_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_flex_flow(s_main_container, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_flex_align(s_main_container, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
-    lv_obj_set_style_pad_gap(s_main_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+        extern lv_obj_t * lv_example_virtual3d_animated_emoji(lv_obj_t * p_container) ;
+    s_emoji_container = lv_example_virtual3d_animated_emoji(screen) ;
     /* Header row container */
-    s_header_row = lv_obj_create(s_main_container);
+    s_header_row = lv_obj_create(screen);
     lv_obj_remove_flag(s_header_row, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_size(s_header_row, scr_width, SCALE_DPX(HEADER_HEIGHT));
 
@@ -304,6 +269,7 @@ static rt_err_t ui_objects_init(void)
     lv_label_set_long_mode(s_label_status, LV_LABEL_LONG_WRAP);
     lv_obj_add_style(s_label_status, &s_style_24, 0);
     lv_obj_set_width(s_label_status, LV_PCT(60));
+    lv_obj_set_style_text_color(s_label_status, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(s_label_status, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     /* Battery container */
@@ -312,6 +278,7 @@ static rt_err_t ui_objects_init(void)
     lv_obj_set_style_pad_all(battery_outline, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_radius(battery_outline, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_clear_flag(battery_outline, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_style_text_color(s_label_status, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_size(battery_outline, BATTERY_OUTLINE_W * g_scale, BATTERY_OUTLINE_H * g_scale);
 
     /* Battery fill */
@@ -324,12 +291,14 @@ static rt_err_t ui_objects_init(void)
     lv_obj_set_style_border_width(s_battery_fill, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_radius(s_battery_fill, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_align(s_battery_fill, LV_ALIGN_LEFT_MID, 0, 0);
+    lv_obj_set_style_text_color(s_battery_fill, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_clear_flag(s_battery_fill, LV_OBJ_FLAG_SCROLLABLE);
 
     /* Battery label */
     s_battery_label = lv_label_create(battery_outline);
     lv_obj_add_style(s_battery_label, &s_style_20, 0);
     lv_label_set_text_fmt(s_battery_label, "%d%%", s_battery_level);
+    lv_obj_set_style_text_color(s_battery_label, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_align(s_battery_label, LV_ALIGN_CENTER, 0, 0);
 
     /* Right spacer */
@@ -348,31 +317,23 @@ static rt_err_t ui_objects_init(void)
     lv_obj_set_style_pad_all(s_img_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     /* Create emoji objects - centered in img_container */
-    for (int i = 0; i < EMOJI_NUM; i++)
-    {
-        s_emoji_objs[i] = lv_img_create(s_img_container);
-        lv_img_set_src(s_emoji_objs[i], s_emoji_imgs[i]);
-        lv_obj_align(s_emoji_objs[i], LV_ALIGN_CENTER, 0, 0);
-        lv_img_set_zoom(s_emoji_objs[i], (int)(LV_SCALE_NONE * g_scale));
-        lv_obj_add_flag(s_emoji_objs[i], LV_OBJ_FLAG_HIDDEN);
-    }
-    /* Show neutral emoji by default */
-    lv_obj_clear_flag(s_emoji_objs[0], LV_OBJ_FLAG_HIDDEN);
-
     /* Text container for output */
-    lv_obj_t *text_container = lv_obj_create(s_main_container);
+    lv_obj_t *text_container = lv_obj_create(screen);
+    lv_obj_align(text_container, LV_ALIGN_BOTTOM_MID, 0, 0);
     lv_obj_remove_flag(text_container, LV_OBJ_FLAG_SCROLLABLE);
-    lv_obj_set_size(text_container, scr_width, scr_height * 0.4);
+    lv_obj_set_size(text_container, scr_width, scr_height * 0.2);
     lv_obj_set_style_bg_opa(text_container, LV_OPA_0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(text_container, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(text_container, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_pad_all(text_container, SCALE_DPX(20), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     /* Output label */
     s_label_output = lv_label_create(text_container);
     lv_label_set_long_mode(s_label_output, LV_LABEL_LONG_WRAP);
-    lv_obj_add_style(s_label_output, &s_style_24, 0);
+    lv_obj_add_style(s_label_output, &s_style_20, 0);
     lv_obj_set_width(s_label_output, LV_PCT(90));
     lv_obj_set_style_text_align(s_label_output, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(s_label_output, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_align(s_label_output, LV_ALIGN_TOP_MID, 0, 0);
 
     /* Info label */
@@ -381,6 +342,7 @@ static rt_err_t ui_objects_init(void)
     lv_obj_add_style(s_label_info, &s_style_20, 0);
     lv_obj_set_width(s_label_info, LV_PCT(90));
     lv_obj_set_style_text_align(s_label_info, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(s_label_info, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_align(s_label_info, LV_ALIGN_BOTTOM_MID, 0, 0);
 
     /* ADC label - positioned in top right */
@@ -443,20 +405,8 @@ static int ui_find_emoji_index(const char *name)
  */
 static void ui_show_emoji(int index)
 {
-    for (int i = 0; i < EMOJI_NUM; i++)
-    {
-        lv_obj_add_flag(s_emoji_objs[i], LV_OBJ_FLAG_HIDDEN);
-    }
-
-    if (index >= 0 && index < EMOJI_NUM)
-    {
-        lv_obj_clear_flag(s_emoji_objs[index], LV_OBJ_FLAG_HIDDEN);
-    }
-    else
-    {
-        /* Default to neutral */
-        lv_obj_clear_flag(s_emoji_objs[0], LV_OBJ_FLAG_HIDDEN);
-    }
+    extern void qday_show_emoji_by_rtt_info(int index);
+    qday_show_emoji_by_rtt_info(index);
 }
 
 /**
@@ -583,6 +533,9 @@ static void ui_thread_entry(void *args)
     lv_tick_set_cb(&rt_tick_get_millisecond);
     lv_port_disp_init();
 
+    extern void lv_port_indev_init(void);
+    lv_port_indev_init();
+
     /* Get screen resolution for scaling */
     lv_coord_t scr_width = lv_disp_get_hor_res(NULL);
     lv_coord_t scr_height = lv_disp_get_ver_res(NULL);
@@ -597,19 +550,19 @@ static void ui_thread_entry(void *args)
     font_36 = lv_tiny_ttf_create_data(xiaozhi_font, xiaozhi_font_size, (int)(36 * g_scale));
     lv_style_set_text_font(&s_style_30, font_36);
     lv_style_set_text_align(&s_style_30, LV_TEXT_ALIGN_CENTER);
-    lv_style_set_text_color(&s_style_30, lv_color_hex(0x000000));
+    lv_style_set_text_color(&s_style_30, lv_color_hex(0xffffff));
 
     lv_style_init(&s_style_24);
     font_28 = lv_tiny_ttf_create_data(xiaozhi_font, xiaozhi_font_size, (int)(28 * g_scale));
     lv_style_set_text_font(&s_style_24, font_28);
     lv_style_set_text_align(&s_style_24, LV_TEXT_ALIGN_CENTER);
-    lv_style_set_text_color(&s_style_24, lv_color_hex(0x000000));
+    lv_style_set_text_color(&s_style_24, lv_color_hex(0xffffff));
 
     lv_style_init(&s_style_20);
     font_22 = lv_tiny_ttf_create_data(xiaozhi_font, xiaozhi_font_size, (int)(22 * g_scale));
     lv_style_set_text_font(&s_style_20, font_22);
     lv_style_set_text_align(&s_style_20, LV_TEXT_ALIGN_CENTER);
-    lv_style_set_text_color(&s_style_20, lv_color_hex(0x000000));
+    lv_style_set_text_color(&s_style_20, lv_color_hex(0xffffff));
 
     /* Initialize UI objects */
     if (ui_objects_init() != RT_EOK)
@@ -633,7 +586,7 @@ static void ui_thread_entry(void *args)
     /* Main loop */
     while (1)
     {
-        if (rt_mq_recv(&s_ui_mq, &msg, sizeof(msg), RT_WAITING_FOREVER) > 0)
+        if (rt_mq_recv(&s_ui_mq, &msg, sizeof(msg), RT_WAITING_NO) > 0)
         {
             ui_process_message(&msg);
         }

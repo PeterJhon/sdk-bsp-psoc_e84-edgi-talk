@@ -23,8 +23,8 @@ extern "C" {
 /*********************
  *      DEFINES
  *********************/
-#define LX_HOR_RES  LV_HOR_RES
-#define LX_VER_RES  LV_VER_RES
+#define LX_HOR_RES  512
+#define LX_VER_RES  512
 
 /**********************
  *      TYPEDEFS

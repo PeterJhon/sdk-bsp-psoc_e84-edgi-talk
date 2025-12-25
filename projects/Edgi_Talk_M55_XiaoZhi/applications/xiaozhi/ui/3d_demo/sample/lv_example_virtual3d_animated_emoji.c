@@ -122,7 +122,7 @@ LX_MOD_DECLARE(LX_MODEL_EMOJI_51)
 LX_MOD_DECLARE(LX_MODEL_EMOJI_52)
 LX_MOD_DECLARE(LX_MODEL_EMOJI_53)
 #endif
-
+lv_obj_t * emoji_container;
 lv_obj_t* emoji_virtual3d = NULL;
 
 static bool emoji_popup_mode = false;
@@ -1622,7 +1622,7 @@ static uint32_t virtual3d_user_callback_test(uint16_t cmd, uint32_t param, uint3
 /**
  * @brief 创建3D表情动画显示示例
  */
-void lv_example_virtual3d_animated_emoji(void) 
+lv_obj_t * lv_example_virtual3d_animated_emoji(lv_obj_t * p_container)
 {
 
 #if 1
@@ -1634,7 +1634,7 @@ void lv_example_virtual3d_animated_emoji(void)
     emoji_hide_screen_visible_objs();
 
     /* 创建3D表情动画对象 */
-    emoji_virtual3d = lv_virtual3d_create(lv_screen_active(), 
+    emoji_virtual3d = lv_virtual3d_create(p_container,
                                             LX_VGWIDGET_INS_EMOJI_ANIMATION, 
                                             EMOJI_BG);
     lv_obj_center(emoji_virtual3d);

@@ -60,7 +60,7 @@ typedef struct lx_action_cfg_item
 /**
  * @brief 创建3D表情动画显示示例
  */
-void lv_example_virtual3d_animated_emoji(void);
+lv_obj_t * lv_example_virtual3d_animated_emoji(lv_obj_t * p_container) ;
 
 void lv_example_virtual3d_animated_emoji_popup(void);
 
