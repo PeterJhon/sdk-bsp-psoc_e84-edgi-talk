@@ -106,7 +106,7 @@ void lv_virtual3d_setup(lv_obj_t * obj)
 
         if(virtual3d->anim_timer == NULL)
         {
-            virtual3d->anim_timer = lv_timer_create(virtual3d_timer_cb, 20, (void*)virtual3d);
+            virtual3d->anim_timer = lv_timer_create(virtual3d_timer_cb, 50, (void*)virtual3d);
             lv_timer_set_repeat_count(virtual3d->anim_timer, -1);            
         }
     }
