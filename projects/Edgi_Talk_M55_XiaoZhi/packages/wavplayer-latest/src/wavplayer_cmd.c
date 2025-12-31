@@ -194,3 +194,21 @@ int wav_player(int argc, char *argv[])
 }
 
 MSH_CMD_EXPORT_ALIAS(wav_player, wavplay, play wav music);
+
+extern int rt_hw_ST7102_port(void);
+int init_check = 0;
+void check_devices(void)
+{
+    wavplayer_volume_set(50);
+    rt_thread_mdelay(500);
+    wavplayer_volume_set(70);
+    rt_thread_mdelay(500);
+    wavplayer_volume_set(80);
+    rt_thread_mdelay(500);
+    wavplayer_volume_set(99);
+    init_check = 1;
+    wavplayer_play("/webnet/output.wav");
+
+    rt_kprintf("wavplay start: volume=99, file=output.wav\n");
+}
+MSH_CMD_EXPORT(check_devices, check voice and touch);

@@ -70,13 +70,19 @@ static void touchpad_init(void)
 *  void
 *
 *******************************************************************************/
+extern int init_check;
 static void touchpad_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
 {
-    static rt_int16_t touch_x = 0;
-    static rt_int16_t touch_y = 0;
+    static int touch_x = 0;
+    static int touch_y = 0;
+
+
     cy_rslt_t result = CY_RSLT_SUCCESS;
     data->state = LV_INDEV_STATE_REL;
     result = ST7102_get_single_touch(&touch_x, &touch_y);
+    if(init_check ==1){
+        rt_kprintf("Touch read: x=%d, y=%d \r\n", touch_x, touch_y);
+    }
     if (CY_RSLT_SUCCESS == result)
     {
         data->state = LV_INDEV_STATE_PR;

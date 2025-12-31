@@ -40,7 +40,7 @@ extern const uint8_t lx_log_level;
 #define _LX_LOG_LEVEL_NUM  6 /**< Number of log levels*/
 #include <rtdbg.h>
 
-#define LX_PRINTF   printf
+#define LX_PRINTF   
 
 //#define LX_PRINTF   LOG_E
 
