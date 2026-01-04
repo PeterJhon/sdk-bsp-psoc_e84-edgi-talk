@@ -11,7 +11,7 @@
 #define DBG_TAG "app.filesystem"
 #define DBG_LVL DBG_INFO
 #include <rtdbg.h>
-
+#ifndef BSP_USING_XiaoZhi
 static const struct romfs_dirent _romfs_root[] =
 {
 #ifdef BSP_USING_FLASH
@@ -26,6 +26,7 @@ const struct romfs_dirent romfs_root =
 {
     ROMFS_DIRENT_DIR, "/", (rt_uint8_t *)_romfs_root, sizeof(_romfs_root) / sizeof(_romfs_root[0])
 };
+#endif
 
 static void _sdcard_mount(void)
 {
