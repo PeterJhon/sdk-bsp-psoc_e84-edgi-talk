@@ -29,7 +29,7 @@ extern "C" {
 /*********************
 *      DEFINES
 *********************/
-#define LX_VGLITE_LIB_VERSION   "V25.12.24.05"
+#define LX_VGLITE_LIB_VERSION   "V26.01.04.04"
 
 #define LX_VGWIDGET_INS_DEMO lx_vglite_load_demo_widget()/*仅供调试*/
 
