@@ -61,3 +61,15 @@ RT-Thread Settings --> 硬件 --> select SOC Multi Core Mode --> Enable CM55 Cor
 ```
 
 ![](figures/config.png)
+
+### Q3.烧录固件出错
+![alt text](figures/6.png)
+
+**解决方法：**
+![alt text](figures/7.png)
+
+1. 将 BOOT 配置切换至 **INT**
+2. 重启开发板
+3. 下载程序
+4. 将 BOOT 配置切换至 **EXT**
+5. 再次重启开发板
