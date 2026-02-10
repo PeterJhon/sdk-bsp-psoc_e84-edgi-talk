@@ -410,7 +410,7 @@ static rt_err_t sound_init(struct rt_audio_device *audio)
 
     es8388_start(ES_MODE_DAC);
 
-    es8388_volume_set(20);
+    es8388_volume_set(80);
     ifx_set_samplerate(snd_dev->audio_config);
 
     rt_thread_startup(snd_dev->playback_thread);
