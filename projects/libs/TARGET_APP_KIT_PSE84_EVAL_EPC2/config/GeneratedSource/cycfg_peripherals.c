@@ -4,9 +4,9 @@
  * Description:
  * Analog configuration
  * This file was automatically generated and should not be modified.
- * Configurator Backend 3.60.0
- * device-db 4.34.0.9502
- * mtb-dsl-pse8xxgp 1.1.1.824
+ * Configurator Backend 3.70.0
+ * device-db 4.35.0.9884
+ * mtb-dsl-pse8xxgp 1.4.0.994
  *
  *******************************************************************************
  * Copyright 2026 Cypress Semiconductor Corporation (an Infineon company) or
@@ -146,8 +146,7 @@ cy_en_autanalog_ac_out_trigger_mask_t CYBSP_AUTONOMOUS_CONTROLLER_out_trig_mask[
 };
 cy_stc_autanalog_ac_t CYBSP_AUTONOMOUS_CONTROLLER_cfg =
 {
-    .gpioOutEn =  
- CY_AUTANALOG_STT_AC_GPIO_OUT_DISABLED,
+    .gpioOutEn =   CY_AUTANALOG_STT_AC_GPIO_OUT_DISABLED,
     .mask =
     {
         &CYBSP_AUTONOMOUS_CONTROLLER_out_trig_mask[0U], 
@@ -237,8 +236,7 @@ cy_stc_autanalog_sar_sta_hs_t CYBSP_SAR_ADC_sta_hs_cfg =
         NULL, 
         NULL, 
     },
-    .hsGpioResultMask =  
- CY_AUTANALOG_SAR_CHAN_MASK_GPIO0,
+    .hsGpioResultMask =   CY_AUTANALOG_SAR_CHAN_MASK_GPIO0,
 };
 cy_stc_autanalog_sar_sta_t CYBSP_SAR_ADC_sta_cfg =
 {
@@ -276,10 +274,8 @@ cy_stc_autanalog_sar_sta_t CYBSP_SAR_ADC_sta_cfg =
         NULL, 
         NULL, 
     },
-    .muxResultMask =  
- CY_AUTANALOG_SAR_CHAN_MASK_MUX_DISABLED,
-    .firResultMask =  
- CY_AUTANALOG_SAR_MASK_FIR_DISABLED,
+    .muxResultMask =   CY_AUTANALOG_SAR_CHAN_MASK_MUX_DISABLED,
+    .firResultMask =   CY_AUTANALOG_SAR_MASK_FIR_DISABLED,
 };
 cy_stc_autanalog_sar_seq_tab_hs_t CYBSP_SAR_ADC_seq_hs_cfg[] =
 {
@@ -349,7 +345,7 @@ cy_stc_gfx_layer_config_t GFXSS_graphics_layer =
     .pos_x = 0,
     .pos_y = 0,
     .width = 512,
-    .height = 800,
+    .height = 768,
     .zorder = 0,
     .layer_enable = true,
     .visibility = true,
@@ -390,10 +386,10 @@ cy_stc_gfx_dc_config_t GFXSS_dc_config =
     .ovl0_layer_config = &GFXSS_overlay0_layer,
     .ovl1_layer_config = &GFXSS_overlay1_layer,
     .display_type = GFX_DISP_TYPE_DSI_DPI,
-    .display_format = vivD16CFG1,
+    .display_format = vivD24,
     .display_size = vivDISPLAY_CUSTOMIZED,
     .display_width = 512,
-    .display_height = 800,
+    .display_height = 768,
 };
 cy_stc_gfx_gpu_cfg_t GFXSS_gpu_config =
 {
@@ -401,23 +397,23 @@ cy_stc_gfx_gpu_cfg_t GFXSS_gpu_config =
 };
 cy_stc_mipidsi_display_params_t GFXSS_mipidsi_display_params =
 {
-    .pixel_clock = 33448,
+    .pixel_clock = 27212,
     .hdisplay = 512,
-    .hsync_width = 2,
-    .hfp = 36,
-    .hbp = 40,
-    .vdisplay = 800,
-    .vsync_width = 2,
-    .vfp = 180,
-    .vbp = 10,
+    .hsync_width = 10,
+    .hfp = 20,
+    .hbp = 20,
+    .vdisplay = 768,
+    .vsync_width = 30,
+    .vfp = 4,
+    .vbp = 5,
     .polarity_flags = 0,
 };
 cy_stc_mipidsi_config_t GFXSS_mipi_dsi_config =
 {
     .virtual_ch = 0,
     .num_of_lanes = 2,
-    .per_lane_mbps = 1000,
-    .dpi_fmt = CY_MIPIDSI_FMT_RGB565,
+    .per_lane_mbps = 500,
+    .dpi_fmt = CY_MIPIDSI_FMT_RGB888,
     .dsi_mode = DSI_VIDEO_MODE,
     .max_phy_clk = 2500000000,
     .mode_flags = VID_MODE_TYPE_NON_BURST_SYNC_PULSES | ENABLE_LOW_POWER_CMD | ENABLE_LOW_POWER,
@@ -737,7 +733,7 @@ const mtb_hal_uart_configurator_t CYBSP_UART5_hal_config =
 };
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_UART) */
 
-const cy_stc_scb_spi_config_t CYBSP_SPI_CONTROLLER_config =
+const cy_stc_scb_spi_config_t CYBSP_SPI_9_config =
 {
     .spiMode = CY_SCB_SPI_MASTER,
     .subMode = CY_SCB_SPI_MOTOROLA,
@@ -768,25 +764,25 @@ const cy_stc_scb_spi_config_t CYBSP_SPI_CONTROLLER_config =
 };
 
 #if defined (COMPONENT_MTB_HAL)
-const mtb_hal_peri_div_t CYBSP_SPI_CONTROLLER_clock_ref =
+const mtb_hal_peri_div_t CYBSP_SPI_9_clock_ref =
 {
-    .clk_dst = (en_clk_dst_t)PCLK_SCB10_CLOCK_SCB_EN,
+    .clk_dst = (en_clk_dst_t)PCLK_SCB9_CLOCK_SCB_EN,
     .div_type = CY_SYSCLK_DIV_8_BIT,
     .div_num = 1,
 };
-const mtb_hal_clock_t CYBSP_SPI_CONTROLLER_hal_clock =
+const mtb_hal_clock_t CYBSP_SPI_9_hal_clock =
 {
-    .clock_ref = &CYBSP_SPI_CONTROLLER_clock_ref,
+    .clock_ref = &CYBSP_SPI_9_clock_ref,
     .interface = &mtb_hal_clock_peri_interface,
 };
 #endif /* defined (COMPONENT_MTB_HAL) */
 
 #if defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_SPI)
-const mtb_hal_spi_configurator_t CYBSP_SPI_CONTROLLER_hal_config =
+const mtb_hal_spi_configurator_t CYBSP_SPI_9_hal_config =
 {
-    .base = CYBSP_SPI_CONTROLLER_HW,
-    .clock = &CYBSP_SPI_CONTROLLER_hal_clock,
-    .config = &CYBSP_SPI_CONTROLLER_config,
+    .base = CYBSP_SPI_9_HW,
+    .clock = &CYBSP_SPI_9_hal_clock,
+    .config = &CYBSP_SPI_9_config,
 };
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_SPI) */
 
@@ -1563,8 +1559,8 @@ void init_cycfg_peripherals(void)
     Cy_SysClk_PeriPclkAssignDivider(PCLK_SCB4_CLOCK_SCB_EN, CY_SYSCLK_DIV_16_5_BIT, 0U);
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SCB5_PERI_NR, CY_MMIO_SCB5_GROUP_NR, CY_MMIO_SCB5_SLAVE_NR, CY_MMIO_SCB5_CLK_HF_NR);
     Cy_SysClk_PeriPclkAssignDivider(PCLK_SCB5_CLOCK_SCB_EN, CY_SYSCLK_DIV_8_BIT, 0U);
-    Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SCB10_PERI_NR, CY_MMIO_SCB10_GROUP_NR, CY_MMIO_SCB10_SLAVE_NR, CY_MMIO_SCB10_CLK_HF_NR);
-    Cy_SysClk_PeriPclkAssignDivider(PCLK_SCB10_CLOCK_SCB_EN, CY_SYSCLK_DIV_8_BIT, 1U);
+    Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SCB9_PERI_NR, CY_MMIO_SCB9_GROUP_NR, CY_MMIO_SCB9_SLAVE_NR, CY_MMIO_SCB9_CLK_HF_NR);
+    Cy_SysClk_PeriPclkAssignDivider(PCLK_SCB9_CLOCK_SCB_EN, CY_SYSCLK_DIV_8_BIT, 1U);
 #if defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE)
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SDHC0_PERI_NR, CY_MMIO_SDHC0_GROUP_NR, CY_MMIO_SDHC0_SLAVE_NR, CY_MMIO_SDHC0_CLK_HF_NR);
 #endif /* defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE) */

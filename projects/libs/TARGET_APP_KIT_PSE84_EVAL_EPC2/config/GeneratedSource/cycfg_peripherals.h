@@ -4,9 +4,9 @@
  * Description:
  * Analog configuration
  * This file was automatically generated and should not be modified.
- * Configurator Backend 3.60.0
- * device-db 4.34.0.9502
- * mtb-dsl-pse8xxgp 1.1.1.824
+ * Configurator Backend 3.70.0
+ * device-db 4.35.0.9884
+ * mtb-dsl-pse8xxgp 1.4.0.994
  *
  *******************************************************************************
  * Copyright 2026 Cypress Semiconductor Corporation (an Infineon company) or
@@ -98,9 +98,9 @@ extern "C" {
 #define CYBSP_UART5_ENABLED 1U
 #define CYBSP_UART5_HW SCB5
 #define CYBSP_UART5_IRQ scb_5_interrupt_IRQn
-#define CYBSP_SPI_CONTROLLER_ENABLED 1U
-#define CYBSP_SPI_CONTROLLER_HW SCB10
-#define CYBSP_SPI_CONTROLLER_IRQ scb_10_interrupt_IRQn
+#define CYBSP_SPI_9_ENABLED 1U
+#define CYBSP_SPI_9_HW SCB9
+#define CYBSP_SPI_9_IRQ scb_9_interrupt_IRQn
 #define CYBSP_SDHC_0_ENABLED 1U
 #define CYBSP_SDHC_0_HW SDHC0
 #define CYBSP_SDHC_0_IRQ sdhc_0_interrupt_general_IRQn
@@ -254,15 +254,15 @@ extern const mtb_hal_clock_t CYBSP_UART5_hal_clock;
 extern const mtb_hal_uart_configurator_t CYBSP_UART5_hal_config;
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_UART) */
 
-extern const cy_stc_scb_spi_config_t CYBSP_SPI_CONTROLLER_config;
+extern const cy_stc_scb_spi_config_t CYBSP_SPI_9_config;
 
 #if defined (COMPONENT_MTB_HAL)
-extern const mtb_hal_peri_div_t CYBSP_SPI_CONTROLLER_clock_ref;
-extern const mtb_hal_clock_t CYBSP_SPI_CONTROLLER_hal_clock;
+extern const mtb_hal_peri_div_t CYBSP_SPI_9_clock_ref;
+extern const mtb_hal_clock_t CYBSP_SPI_9_hal_clock;
 #endif /* defined (COMPONENT_MTB_HAL) */
 
 #if defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_SPI)
-extern const mtb_hal_spi_configurator_t CYBSP_SPI_CONTROLLER_hal_config;
+extern const mtb_hal_spi_configurator_t CYBSP_SPI_9_hal_config;
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_SPI) */
 
 extern cy_en_sd_host_card_capacity_t CYBSP_SDHC_0_cardCapacity;
