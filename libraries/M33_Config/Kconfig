@@ -114,6 +114,19 @@ menu "On-chip Peripheral Drivers"
                 default n
         endif
 
+    menuconfig BSP_USING_CANFD
+        bool "Enable CANFD"
+        select RT_USING_CAN
+        default n
+        if BSP_USING_CANFD
+            config BSP_USING_CANFD0
+                bool "Enable CANFD0"
+                default n
+            config BSP_USING_CANFD1
+                bool "Enable CANFD1"
+                default n
+        endif
+
     menuconfig BSP_USING_I2C
         bool "Enable I2C"
         default n

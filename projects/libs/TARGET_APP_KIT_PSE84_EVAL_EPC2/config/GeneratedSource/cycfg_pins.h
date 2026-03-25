@@ -842,6 +842,30 @@ extern "C" {
 #endif
 #define CYBSP_ARD_ADC_5_HSIOM ioss_0_port_15_pin_7_HSIOM
 #define CYBSP_ARD_ADC_5_IRQ ioss_interrupts_gpio_15_IRQn
+#define CYBSP_SPI_CLK_ENABLED 1U
+#define CYBSP_SPI_CLK_PORT GPIO_PRT16
+#define CYBSP_SPI_CLK_PORT_NUM 16U
+#define CYBSP_SPI_CLK_PIN 0U
+#define CYBSP_SPI_CLK_NUM 0U
+#define CYBSP_SPI_CLK_DRIVEMODE CY_GPIO_DM_HIGHZ
+#define CYBSP_SPI_CLK_INIT_DRIVESTATE 1
+#ifndef ioss_0_port_16_pin_0_HSIOM
+    #define ioss_0_port_16_pin_0_HSIOM HSIOM_SEL_GPIO
+#endif
+#define CYBSP_SPI_CLK_HSIOM ioss_0_port_16_pin_0_HSIOM
+#define CYBSP_SPI_CLK_IRQ ioss_interrupts_gpio_16_IRQn
+#define CYBSP_SPI_MOSI_ENABLED 1U
+#define CYBSP_SPI_MOSI_PORT GPIO_PRT16
+#define CYBSP_SPI_MOSI_PORT_NUM 16U
+#define CYBSP_SPI_MOSI_PIN 1U
+#define CYBSP_SPI_MOSI_NUM 1U
+#define CYBSP_SPI_MOSI_DRIVEMODE CY_GPIO_DM_STRONG
+#define CYBSP_SPI_MOSI_INIT_DRIVESTATE 1
+#ifndef ioss_0_port_16_pin_1_HSIOM
+    #define ioss_0_port_16_pin_1_HSIOM HSIOM_SEL_GPIO
+#endif
+#define CYBSP_SPI_MOSI_HSIOM ioss_0_port_16_pin_1_HSIOM
+#define CYBSP_SPI_MOSI_IRQ ioss_interrupts_gpio_16_IRQn
 #define CYBSP_USER_LED3_ENABLED 1U
 #define CYBSP_LED_BLUE_ENABLED CYBSP_USER_LED3_ENABLED
 #define CYBSP_USER_LED3_PORT GPIO_PRT16
@@ -1176,6 +1200,8 @@ extern const cy_stc_gpio_pin_config_t CYBSP_SPI_9_MOSI_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_SPI_9_MISO_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_ARD_ADC_4_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_ARD_ADC_5_config;
+extern const cy_stc_gpio_pin_config_t CYBSP_SPI_CLK_config;
+extern const cy_stc_gpio_pin_config_t CYBSP_SPI_MOSI_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_USER_LED3_config;
 
 #define CYBSP_LED_BLUE_config CYBSP_USER_LED3_config

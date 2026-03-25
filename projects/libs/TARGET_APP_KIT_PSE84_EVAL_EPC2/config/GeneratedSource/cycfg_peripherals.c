@@ -28,6 +28,18 @@
 
 #include "cycfg_peripherals.h"
 
+#define CYBSP_CAN_FD_CH_0_STD_ID_FILTER_0 \
+{\
+    .sfid2 = 0xFFU, \
+    .sfid1 = 0x10U, \
+    .sfec = CY_CANFD_SFEC_DISABLE, \
+    .sft = CY_CANFD_SFT_RANGE_SFID1_SFID2, \
+ }
+#define CYBSP_CAN_FD_CH_0_EXT_ID_FILTER_0 \
+{\
+    .f0_f = &CYBSP_CAN_FD_CH_0_extIdFilterF0Config_0, \
+    .f1_f = &CYBSP_CAN_FD_CH_0_extIdFilterF1Config_0, \
+ }
 #define CYBSP_GENERAL_PURPOSE_TIMER_INPUT_DISABLED 0x7U
 #define emUSB_OS_Timer_INPUT_DISABLED 0x7U
 #define CYBSP_PWM_LED_CTRL_INPUT_DISABLED 0x7U
@@ -886,6 +898,164 @@ const mtb_hal_sdio_configurator_t CYBSP_SDHC_1_sdio_hal_config =
 };
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_SDIO) */
 
+void canfd0_rx_callback(bool rxFIFOMsg, uint8_t msgBufOrRxFIFONum, cy_stc_canfd_rx_buffer_t* basemsg);
+const cy_stc_canfd_bitrate_t CYBSP_CAN_FD_CH_0_nominalBitrateConfig =
+{
+    .prescaler = 1U - 1U,
+    .timeSegment1 = 59U - 1U,
+    .timeSegment2 = 20U - 1U,
+    .syncJumpWidth = 1U - 1U,
+};
+const cy_stc_canfd_bitrate_t CYBSP_CAN_FD_CH_0_dataBitrateConfig =
+{
+    .prescaler = 1U - 1U,
+    .timeSegment1 = 29U - 1U,
+    .timeSegment2 = 10U - 1U,
+    .syncJumpWidth = 1U - 1U,
+};
+const cy_stc_canfd_transceiver_delay_compensation_t CYBSP_CAN_FD_CH_0_tdcConfig =
+{
+    .tdcEnabled = false,
+    .tdcOffset = 0U,
+    .tdcFilterWindow = 0U,
+};
+const cy_stc_id_filter_t CYBSP_CAN_FD_CH_0_stdIdFilter_0 =
+{
+    .sfid2 = 0xFFU,
+    .sfid1 = 0x10U,
+    .sfec = CY_CANFD_SFEC_DISABLE,
+    .sft = CY_CANFD_SFT_RANGE_SFID1_SFID2,
+};
+const cy_stc_id_filter_t CYBSP_CAN_FD_CH_0_stdIdFilters[] =
+{
+    [0] = CYBSP_CAN_FD_CH_0_STD_ID_FILTER_0,
+};
+const cy_stc_canfd_sid_filter_config_t CYBSP_CAN_FD_CH_0_sidFiltersConfig =
+{
+    .numberOfSIDFilters = 1U,
+    .sidFilter = CYBSP_CAN_FD_CH_0_stdIdFilters,
+};
+const cy_stc_canfd_f0_t CYBSP_CAN_FD_CH_0_extIdFilterF0Config_0 =
+{
+    .efid1 = 0U,
+    .efec = CY_CANFD_EFEC_DISABLE,
+};
+const cy_stc_canfd_f1_t CYBSP_CAN_FD_CH_0_extIdFilterF1Config_0 =
+{
+    .efid2 = 0U,
+    .eft = CY_CANFD_EFT_RANGE_EFID1_EFID2,
+};
+const cy_stc_extid_filter_t CYBSP_CAN_FD_CH_0_extIdFilter_0 =
+{
+    .f0_f = &CYBSP_CAN_FD_CH_0_extIdFilterF0Config_0,
+    .f1_f = &CYBSP_CAN_FD_CH_0_extIdFilterF1Config_0,
+};
+const cy_stc_extid_filter_t CYBSP_CAN_FD_CH_0_extIdFilters[] =
+{
+    [0] = CYBSP_CAN_FD_CH_0_EXT_ID_FILTER_0,
+};
+const cy_stc_canfd_extid_filter_config_t CYBSP_CAN_FD_CH_0_extIdFiltersConfig =
+{
+    .numberOfEXTIDFilters = 1U,
+    .extidFilter = (cy_stc_extid_filter_t*)&CYBSP_CAN_FD_CH_0_extIdFilters,
+    .extIDANDMask = 536870911UL,
+};
+const cy_stc_canfd_global_filter_config_t CYBSP_CAN_FD_CH_0_globalFilterConfig =
+{
+    .nonMatchingFramesStandard = CY_CANFD_ACCEPT_IN_RXFIFO_0,
+    .nonMatchingFramesExtended = CY_CANFD_ACCEPT_IN_RXFIFO_0,
+    .rejectRemoteFramesStandard = false,
+    .rejectRemoteFramesExtended = false,
+};
+const cy_en_canfd_fifo_config_t CYBSP_CAN_FD_CH_0_rxFifo0Config =
+{
+    .mode = CY_CANFD_FIFO_MODE_BLOCKING,
+    .watermark = 0U,
+    .numberOfFIFOElements = 8U,
+    .topPointerLogicEnabled = false,
+};
+const cy_en_canfd_fifo_config_t CYBSP_CAN_FD_CH_0_rxFifo1Config =
+{
+    .mode = CY_CANFD_FIFO_MODE_BLOCKING,
+    .watermark = 0U,
+    .numberOfFIFOElements = 8U,
+    .topPointerLogicEnabled = false,
+};
+const cy_stc_canfd_config_t CYBSP_CAN_FD_CH_0_config =
+{
+    .txCallback = NULL,
+    .rxCallback = canfd0_rx_callback,
+    .errorCallback = NULL,
+    .canFDMode = true,
+    .bitrate = &CYBSP_CAN_FD_CH_0_nominalBitrateConfig,
+    .fastBitrate = &CYBSP_CAN_FD_CH_0_dataBitrateConfig,
+    .tdcConfig = &CYBSP_CAN_FD_CH_0_tdcConfig,
+    .sidFilterConfig = &CYBSP_CAN_FD_CH_0_sidFiltersConfig,
+    .extidFilterConfig = &CYBSP_CAN_FD_CH_0_extIdFiltersConfig,
+    .globalFilterConfig = &CYBSP_CAN_FD_CH_0_globalFilterConfig,
+    .rxBufferDataSize = CY_CANFD_BUFFER_DATA_SIZE_8,
+    .rxFIFO1DataSize = CY_CANFD_BUFFER_DATA_SIZE_8,
+    .rxFIFO0DataSize = CY_CANFD_BUFFER_DATA_SIZE_8,
+    .txBufferDataSize = CY_CANFD_BUFFER_DATA_SIZE_8,
+    .rxFIFO0Config = &CYBSP_CAN_FD_CH_0_rxFifo0Config,
+    .rxFIFO1Config = &CYBSP_CAN_FD_CH_0_rxFifo1Config,
+    .noOfRxBuffers = 4U,
+    .noOfTxBuffers = 2U,
+    .messageRAMaddress = CY_CAN0MRAM_BASE + 0U,
+    .messageRAMsize = 8192U,
+};
+cy_stc_canfd_t0_t CYBSP_CAN_FD_CH_0_T0RegisterBuffer_0 =
+{
+    .id = 0x22U,
+    .rtr = CY_CANFD_RTR_DATA_FRAME,
+    .xtd = CY_CANFD_XTD_STANDARD_ID,
+    .esi = CY_CANFD_ESI_ERROR_ACTIVE,
+};
+cy_stc_canfd_t0_t CYBSP_CAN_FD_CH_0_T0RegisterBuffer_1 =
+{
+    .id = 0U,
+    .rtr = CY_CANFD_RTR_DATA_FRAME,
+    .xtd = CY_CANFD_XTD_STANDARD_ID,
+    .esi = CY_CANFD_ESI_ERROR_ACTIVE,
+};
+cy_stc_canfd_t1_t CYBSP_CAN_FD_CH_0_T1RegisterBuffer_0 =
+{
+    .dlc = 8U,
+    .brs = true,
+    .fdf = CY_CANFD_FDF_CAN_FD_FRAME,
+    .efc = false,
+    .mm = 0U,
+};
+cy_stc_canfd_t1_t CYBSP_CAN_FD_CH_0_T1RegisterBuffer_1 =
+{
+    .dlc = 0U,
+    .brs = false,
+    .fdf = CY_CANFD_FDF_STANDARD_FRAME,
+    .efc = false,
+    .mm = 0U,
+};
+uint32_t CYBSP_CAN_FD_CH_0_dataBuffer_0[] =
+{
+    [CYBSP_CAN_FD_CH_0_DATA_0] = 0x04030201U,
+    [CYBSP_CAN_FD_CH_0_DATA_1] = 0x08070605U,
+};
+uint32_t CYBSP_CAN_FD_CH_0_dataBuffer_1[] =
+{
+    [CYBSP_CAN_FD_CH_0_DATA_0] = 0U,
+    [CYBSP_CAN_FD_CH_0_DATA_1] = 0U,
+};
+cy_stc_canfd_tx_buffer_t CYBSP_CAN_FD_CH_0_txBuffer_0 =
+{
+    .t0_f = &CYBSP_CAN_FD_CH_0_T0RegisterBuffer_0,
+    .t1_f = &CYBSP_CAN_FD_CH_0_T1RegisterBuffer_0,
+    .data_area_f = CYBSP_CAN_FD_CH_0_dataBuffer_0,
+};
+cy_stc_canfd_tx_buffer_t CYBSP_CAN_FD_CH_0_txBuffer_1 =
+{
+    .t0_f = &CYBSP_CAN_FD_CH_0_T0RegisterBuffer_1,
+    .t1_f = &CYBSP_CAN_FD_CH_0_T1RegisterBuffer_1,
+    .data_area_f = CYBSP_CAN_FD_CH_0_dataBuffer_1,
+};
 const cy_stc_smif_config_t CYBSP_SMIF_CORE_0_XSPI_FLASH_config =
 {
     .mode = (uint32_t)CY_SMIF_NORMAL,
@@ -1539,6 +1709,14 @@ const mtb_hal_pwm_configurator_t tcpwm_0_group_1_cnt_9_hal_config =
 };
 #endif /* defined (COMPONENT_MTB_HAL) && (MTB_HAL_DRIVER_AVAILABLE_PWM) */
 
+__WEAK void canfd0_rx_callback(bool rxFIFOMsg, uint8_t msgBufOrRxFIFONum, cy_stc_canfd_rx_buffer_t* basemsg);
+
+__WEAK void canfd0_rx_callback(bool rxFIFOMsg, uint8_t msgBufOrRxFIFONum, cy_stc_canfd_rx_buffer_t* basemsg)
+{
+    (void)rxFIFOMsg;
+    (void)msgBufOrRxFIFONum;
+    (void)basemsg;
+}
 void init_cycfg_peripherals(void)
 {
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_PASS_PERI_NR, CY_MMIO_PASS_GROUP_NR, CY_MMIO_PASS_SLAVE_NR, CY_MMIO_PASS_CLK_HF_NR);
@@ -1570,6 +1748,10 @@ void init_cycfg_peripherals(void)
 #endif /* defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE) */
     Cy_SysClk_PeriPclkAssignDivider(PCLK_SDHC1_CLK_HF, CY_SYSCLK_DIV_8_BIT, 0U);
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_USBHS_PERI_NR, CY_MMIO_USBHS_GROUP_NR, CY_MMIO_USBHS_SLAVE_NR, CY_MMIO_USBHS_CLK_HF_NR);
+#if defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE)
+    Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_CANFD0_PERI_NR , CY_MMIO_CANFD0_GROUP_NR, CY_MMIO_CANFD0_SLAVE_NR, CY_MMIO_CANFD0_CLK_HF_NR);
+#endif /* defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE) */
+    Cy_SysClk_PeriPclkAssignDivider(PCLK_CANFD0_CLOCK_CAN_EN0, CY_SYSCLK_DIV_8_BIT, 4U);
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SMIF0_PERI_NR, CY_MMIO_SMIF0_GROUP_NR, CY_MMIO_SMIF0_SLAVE_NR, CY_MMIO_SMIF0_CLK_HF_NR);
     Cy_SysClk_PeriGroupSlaveInit(CY_MMIO_SMIF01_PERI_NR, CY_MMIO_SMIF01_GROUP_NR, CY_MMIO_SMIF01_SLAVE_NR, CY_MMIO_SMIF01_CLK_HF_NR);
 #if defined (CY_DEVICE_CONFIGURATOR_IP_ENABLE_FEATURE)

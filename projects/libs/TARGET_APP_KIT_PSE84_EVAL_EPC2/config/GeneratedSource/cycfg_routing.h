@@ -67,6 +67,8 @@ extern "C" {
 #define ioss_0_port_15_pin_0_HSIOM P15_0_SCB9_SPI_CLK
 #define ioss_0_port_15_pin_1_HSIOM P15_1_SCB9_SPI_MOSI
 #define ioss_0_port_15_pin_2_HSIOM P15_2_SCB9_SPI_MISO
+#define ioss_0_port_16_pin_0_HSIOM P16_0_CANFD0_TTCAN_RX0
+#define ioss_0_port_16_pin_1_HSIOM P16_1_CANFD0_TTCAN_TX0
 #define ioss_0_port_16_pin_5_HSIOM P16_5_TCPWM0_LINE5
 #define ioss_0_port_17_pin_0_HSIOM P17_0_SCB5_UART_RX
 #define ioss_0_port_17_pin_1_HSIOM P17_1_SCB5_UART_TX
