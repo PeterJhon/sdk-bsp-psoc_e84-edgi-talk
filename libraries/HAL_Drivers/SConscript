@@ -69,6 +69,9 @@ if GetDepend(['BSP_USING_TIM']):
 if GetDepend(['RT_USING_CAN']):
     src += ['drv_canfd.c']
 
+if GetDepend(['BSP_USING_IPC']):
+    src += ['drv_ipc.c']
+
 path =  [cwd]
 path += [cwd + '/config']
 

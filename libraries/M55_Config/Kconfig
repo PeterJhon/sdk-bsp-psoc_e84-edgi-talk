@@ -118,6 +118,10 @@ menu "On-chip Peripheral Drivers"
                 default n
         endif
 
+    config BSP_USING_IPC
+        bool "Enable IPC"
+        default n
+
     menuconfig BSP_USING_I2C
         bool "Enable I2C"
         default n
